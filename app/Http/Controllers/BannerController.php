@@ -17,8 +17,8 @@ class BannerController extends Controller
     public function index()
     {
         $banners = Banner::all();
-        return view('pages.banner')->with([
-            'banners' => $banners
+        return view('pages.banner.index')->with([
+            'banners' => $banners,
         ]);
     }
 
@@ -42,15 +42,15 @@ class BannerController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg',
-            'status' => 'required|boolean'
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
+            'status' => 'required|boolean',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('banners'), $imageName);
         $data = [
             'title' => $request->input('title'),
-            'image' => $imageName,
-            'status' => $request->input('status')
+            'image' => 'banners/' . $imageName,
+            'status' => $request->input('status'),
         ];
         Banner::create($data);
         return redirect('banner')->with('message', 'Data Banner berhasil ditambahkan!');
@@ -75,7 +75,10 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        return view('pages.banner.edit')->with([
+            'banner' => $banner,
+        ]);
     }
 
     /**
@@ -87,7 +90,33 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'image' => 'image|mimes:png,jpg,jpeg|max:1024',
+            'status' => 'required|boolean',
+        ]);
+
+        $banner = Banner::findOrFail($id);
+
+        if ($request->image) {
+            File::delete(public_path($banner->image));
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('banners'), $imageName);
+            $data = [
+                'title' => $request->input('title'),
+                'image' => 'banners/' . $imageName,
+                'status' => $request->input('status'),
+            ];
+        } else {
+            $data = [
+                'title' => $request->input('title'),
+                'status' => $request->input('status'),
+            ];
+        }
+
+        $banner->update($data);
+
+        return redirect('banner')->with('message', 'Data Banner berhasil diubah!');
     }
 
     /**
@@ -99,7 +128,7 @@ class BannerController extends Controller
     public function destroy($id)
     {
         $banner = Banner::findOrFail($id);
-        File::delete(public_path('banners/'. $banner->image));
+        File::delete(public_path($banner->image));
         $banner->delete();
 
         return redirect('banner')->with('message', 'Data Banner berhasil dihapus!');
