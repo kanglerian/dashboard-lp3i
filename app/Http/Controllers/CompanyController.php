@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use App\Models\Banner;
+use App\Models\Company;
 use Illuminate\Support\Facades\File;
 
-class BannerController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,9 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banners = Banner::all();
-        return view('pages.banner.index')->with([
-            'banners' => $banners,
+        $companies = Company::all();
+        return view('pages.company.index')->with([
+            'companies' => $companies,
         ]);
     }
 
@@ -41,19 +40,19 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
+            'name' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=1/1',
             'status' => 'required|boolean',
         ]);
         $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('banners'), $imageName);
+        $request->image->move(public_path('companies'), $imageName);
         $data = [
-            'title' => $request->input('title'),
-            'image' => 'banners/' . $imageName,
+            'name' => $request->input('name'),
+            'image' => 'companies/' . $imageName,
             'status' => $request->input('status'),
         ];
-        Banner::create($data);
-        return redirect('banner')->with('message', 'Data Banner berhasil ditambahkan!');
+        Company::create($data);
+        return redirect('company')->with('message', 'Data perusahaan berhasil ditambahkan!');
     }
 
     /**
@@ -75,9 +74,9 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        $banner = Banner::findOrFail($id);
-        return view('pages.banner.edit')->with([
-            'banner' => $banner,
+        $company = Company::findOrFail($id);
+        return view('pages.company.edit')->with([
+            'company' => $company,
         ]);
     }
 
@@ -91,32 +90,32 @@ class BannerController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
+            'name' => 'required',
+            'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=1/1',
             'status' => 'required|boolean',
         ]);
 
-        $banner = Banner::findOrFail($id);
+        $company = Company::findOrFail($id);
 
         if ($request->image) {
-            File::delete(public_path($banner->image));
+            File::delete(public_path($company->image));
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('banners'), $imageName);
+            $request->image->move(public_path('companies'), $imageName);
             $data = [
-                'title' => $request->input('title'),
-                'image' => 'banners/' . $imageName,
+                'name' => $request->input('name'),
+                'image' => 'benefits/' . $imageName,
                 'status' => $request->input('status'),
             ];
         } else {
             $data = [
-                'title' => $request->input('title'),
+                'name' => $request->input('name'),
                 'status' => $request->input('status'),
             ];
         }
 
-        $banner->update($data);
+        $company->update($data);
 
-        return redirect('banner')->with('message', 'Data Banner berhasil diubah!');
+        return redirect('company')->with('message', 'Data benefit berhasil diubah!');
     }
 
     /**
@@ -127,10 +126,10 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        $banner = Banner::findOrFail($id);
-        File::delete(public_path($banner->image));
-        $banner->delete();
+        $company = Company::findOrFail($id);
+        File::delete(public_path($company->image));
+        $company->delete();
 
-        return redirect('banner')->with('message', 'Data Banner berhasil dihapus!');
+        return redirect('company')->with('message', 'Data perusahaan berhasil dihapus!');
     }
 }

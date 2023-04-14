@@ -144,6 +144,20 @@
         });
     </script>
 
+    <script>
+        const copyLinkAPI = () => {
+            const linkAPI = document.getElementById('linkAPI').innerText;
+            const textarea = document.createElement("textarea");
+            textarea.value = `{{ route('/') }}${linkAPI}`;
+            textarea.style.position = "fixed";
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert('Link sudah disalin!');
+        }
+    </script>
+
 </body>
 
 </html>

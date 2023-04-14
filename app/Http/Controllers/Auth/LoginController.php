@@ -8,10 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
     public function index()
     {
-        return view('layouts.auth');
+        if (Auth::check()) {
+            return redirect('dashboard');
+        } else {
+            return view('layouts.auth');
+        }
     }
     /**
      * Handle an authentication attempt.
@@ -27,12 +30,12 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        if(Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
         }
 
-        return back()->with('loginError','Login Failed!');
+        return back()->with('loginError', 'Login Failed!');
     }
 
     public function logout(Request $request)

@@ -7,15 +7,15 @@
         </li>
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
-            <a href="benefit"><i class="fa-solid fa-circle-check mr-1"></i> Benefit</a>
+            <a href="{{ route('benefit.index') }}"><i class="fa-solid fa-circle-check mr-1"></i> Benefit</a>
         </li>
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
-            <a href="company"><i class="fa-solid fa-building mr-1"></i> Company</a>
+            <a href="{{ route('company.index') }}"><i class="fa-solid fa-building mr-1"></i> Company</a>
         </li>
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
-            <a href="information"><i class="fa-solid fa-bullhorn mr-1"></i> Informasi</a>
+            <a href="{{ route('information.index') }}"><i class="fa-solid fa-bullhorn mr-1"></i> Informasi</a>
         </li>
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">

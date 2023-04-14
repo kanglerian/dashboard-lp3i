@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BannerAPIController;
+use App\Http\Controllers\API\BenefitAPIController;
+use App\Http\Controllers\API\CompanyAPIController;
+use App\Http\Controllers\API\InformationAPIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/banners', [BannerAPIController::class, 'index']);
+Route::get('/benefits', [BenefitAPIController::class, 'index']);
+Route::get('/companies', [CompanyAPIController::class, 'index']);
+Route::get('/informations', [InformationAPIController::class, 'index']);
