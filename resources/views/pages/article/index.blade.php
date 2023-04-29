@@ -4,45 +4,18 @@
     <div class="flex-1 overflow-x-auto px-2">
         <div class="space-y-2 mb-2">
             <a href="banner">
-                <h1 class="font-bold text-2xl">Perusahaan Relasi</h1>
+                <h1 class="font-bold text-2xl">Artikel</h1>
             </a>
-            <p class="text-gray-500 text-sm">Fitur perusahaan relasi adalah konten yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam perusahaan yang sudah bekerjasama dengan LP3I. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
+            <p class="text-gray-500 text-sm">Fitur artikel adalah konten yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam artikel yang di unggah oleh Dosen LP3I. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
+
+            <a href="{{ route('article.create') }}" role="button"
+                class="inline-block text-sm rounded-lg text-white bg-sky-500 hover:bg-sky-600 px-5 py-2"><i
+                    class="fa-solid fa-circle-plus"></i> Tambah Data</a>
+
             <span role="button" onclick="copyLinkAPI()"
                 class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i>
-                <span id="linkAPI">/api/companies</span></span>
+                <span id="linkAPI">/api/articles</span></span>
         </div>
-        <form action="{{ route('company.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
-            method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="flex-1">
-                <input type="text" name="name"
-                    class="w-full p-2 text-gray-700 border border-gray-300 @error('name') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Tulis nama perusahaan disini..">
-                <small class="mt-2 text-xs text-red-500">
-                    {{ $errors->first('name') }}</small>
-            </div>
-            <div class="flex-1">
-                <input type="file" name="image"
-                    class="w-full text-gray-700 border border-gray-300 @error('image') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500">
-                    <small class="mt-2 text-xs text-slate-600"><span class="font-bold">Ketentuan:</span> Ukuran gambar dimensi 1:1 (1MB)</small>
-                    <small class="mt-2 text-xs text-red-500">{{ $errors->first('image') }}</small>
-            </div>
-            <div class="flex-2">
-                <select name="status"
-                    class="w-full p-2 text-gray-700 border border-gray-300 @error('status') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                    required>
-                    <option>Pilih</option>
-                    <option value="1">Aktif</option>
-                    <option value="0">Tidak aktif</option>
-                </select>
-                <small class="mt-2 text-xs text-red-500">
-                    {{ $errors->first('status') }}</small>
-            </div>
-            <div>
-                <button type="submit" class="bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
-                        class="fa-solid fa-floppy-disk"></i> <span id="btnSubmit">Simpan</span></button>
-            </div>
-        </form>
 
         @if (session('message'))
             <div id="alert" class="flex p-4 mb-4 bg-green-50 text-green-800 rounded-lg" role="alert">
@@ -64,10 +37,10 @@
                             No
                         </th>
                         <th scope="col" class="md:w-4/12 px-3 py-3">
-                            Gambar
+                            Poster
                         </th>
                         <th scope="col" class="md:w-3/12 px-6 py-3">
-                            Judul
+                            Judul Media
                         </th>
                         <th scope="col" class="md:w-2/12 px-6 py-3">
                             Aksi
@@ -75,46 +48,53 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($companies as $number => $company)
+                    @forelse($articles as $number => $article)
                         <tr class="bg-white border-b transition ease-in-out duration-200 hover:bg-gray-50">
                             <td class="px-6 py-4">
                                 {{ $number + 1 }}
                             </td>
                             <th scope="row" class="px-6 py-4">
-                                <img src="{{ asset($company->image) }}" class="w-32 rounded">
+                                <img src="{{ asset($article->image) }}" class="w-32 rounded">
                             </th>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900">
-                                {{ $company->name }}
+                                {{ $article->title }}
+                                <p class="text-gray-500 font-normal text-xs mt-1 text-justify">
+                                    {{ date('d F Y', strtotime($article->date)) }}
+                                </p>
                             </th>
                             <td colspan="2" class="space-y-2 px-6 py-4">
                                 <!-- Toggle -->
-                                <form action="{{ route('company.update', $company->id) }}" method="POST" class="inline">
+                                <form action="{{ route('article.update', $article->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('PATCH')
-                                    <input type="hidden" name="name" value="{{ $company->name }}">
-                                    <input type="hidden" name="status" value="{{ $company->status == 1 ? 0 : 1 }}">
+                                    <input type="hidden" name="title" value="{{ $article->title }}">
+                                    <input type="hidden" name="uuid" value="{{ $article->uuid }}">
+                                    <input type="hidden" name="description" value="{{ $article->description }}">
+                                    <input type="hidden" name="date" value="{{ $article->date }}">
+                                    <input type="hidden" name="source" value="{{ $article->source }}">
+                                    <input type="hidden" name="status" value="{{ $article->status == 1 ? 0 : 1 }}">
                                     <button role="button" type="submit"
-                                        class="w-full md:w-auto block md:inline text-center text-white px-2 py-1 text-sm rounded {{ $company->status == 1 ? 'bg-blue-500' : 'bg-red-500' }}">{!! $company->status == 1
+                                        class="w-full md:w-auto block md:inline text-center text-white px-2 py-1 text-sm rounded {{ $article->status == 1 ? 'bg-blue-500' : 'bg-red-500' }}">{!! $article->status == 1
                                             ? '<i class="fa-solid fa-toggle-on fa-1x"></i>'
                                             : '<i class="fa-solid fa-toggle-off fa-1x"></i>' !!}</button>
                                 </form>
                                 <!-- Edit -->
                                 <button
                                     class="w-full md:w-auto block md:inline text-center bg-amber-400 px-2 py-1 text-sm rounded text-white"><a
-                                        href="{{ route('company.edit', $company->id) }}"><i
+                                        href="{{ route('article.edit', $article->id) }}"><i
                                             class="fa-regular fa-pen-to-square"></i></a></button>
                                 <!-- Delete -->
-                                <button role="button" data-modal-target="popup-modal{{ $company->id }}"
-                                    data-modal-toggle="popup-modal{{ $company->id }}"
+                                <button role="button" data-modal-target="popup-modal{{ $article->id }}"
+                                    data-modal-toggle="popup-modal{{ $article->id }}"
                                     class="w-full md:w-auto block md:inline text-center bg-red-600 px-2 py-1 text-sm rounded text-white"><i
                                         class="fa-solid fa-trash"></i></button>
-                                <div id="popup-modal{{ $company->id }}" tabindex="-1"
+                                <div id="popup-modal{{ $article->id }}" tabindex="-1"
                                     class="hidden fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full h-full max-w-md md:h-auto">
                                         <div class="relative bg-white rounded-lg shadow">
                                             <button type="button"
                                                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                                                data-modal-hide="popup-modal{{ $company->id }}">
+                                                data-modal-hide="popup-modal{{ $article->id }}">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
                                             <div class="flex flex-col p-6 text-center">
@@ -122,11 +102,10 @@
                                                     class="block mb-5 text-gray-500 fa-solid fa-circle-exclamation fa-3x"></i>
                                                 <h3 class="mb-5 text-lg font-normal text-gray-500">Kamu yakin akan
                                                     menghapus
-                                                    {{ $company->name }}?
+                                                    {{ $article->title }}?
                                                 </h3>
                                                 <div class="flex justify-center gap-2">
-                                                    <form action="{{ route('company.destroy', $company->id) }}"
-                                                        method="POST">
+                                                    <form action="{{ route('article.destroy', $article->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button role="button"
@@ -134,8 +113,7 @@
                                                             Ya, tentu saja!
                                                         </button>
                                                     </form>
-                                                    <button data-modal-hide="popup-modal{{ $company->id }}"
-                                                        type="button"
+                                                    <button data-modal-hide="popup-modal{{ $article->id }}" type="button"
                                                         class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Tidak,
                                                         batalkan</button>
                                                 </div>

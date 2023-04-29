@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Information;
+use App\Models\Organization;
 
-class InformationController extends Controller
+class OrganizationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class InformationController extends Controller
      */
     public function index()
     {
-        $informations = Information::all();
-        return view('pages.information.index')->with([
-            'informations' => $informations,
+        $organizations = Organization::all();
+        return view('pages.organization.index')->with([
+            'organizations' => $organizations,
         ]);
     }
 
@@ -40,17 +40,16 @@ class InformationController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
-            'youtube' => 'required'
+            'drawio' => 'required',
+            'status' => 'required|boolean'
         ]);
         $data = [
             'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'youtube' => $request->input('youtube'),
-            'status' => 0
+            'drawio' => $request->input('drawio'),
+            'status' => $request->input('status')
         ];
-        Information::create($data);
-        return redirect('information')->with('message', 'Data informasi berhasil ditambahkan!');
+        Organization::create($data);
+        return redirect('organization')->with('message', 'Data organisasi berhasil ditambahkan!');
     }
 
     /**
@@ -72,9 +71,9 @@ class InformationController extends Controller
      */
     public function edit($id)
     {
-        $information = Information::findOrFail($id);
-        return view('pages.information.edit')->with([
-            'information' => $information,
+        $organization = Organization::findOrFail($id);
+        return view('pages.organization.edit')->with([
+            'organization' => $organization,
         ]);
     }
 
@@ -89,21 +88,21 @@ class InformationController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
-            'youtube' => 'required'
+            'drawio' => 'required',
+            'status' => 'required|boolean'
         ]);
 
-        $company = Information::findOrFail($id);
+        $organization = Organization::findOrFail($id);
 
         $data = [
             'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'youtube' => $request->input('youtube')
+            'drawio' => $request->input('drawio'),
+            'status' => $request->input('status')
         ];
 
-        $company->update($data);
+        $organization->update($data);
 
-        return redirect('information')->with('message', 'Data informasi berhasil diubah!');
+        return redirect('organization')->with('message', 'Data organisasi berhasil diubah!');
     }
 
     /**
@@ -114,24 +113,24 @@ class InformationController extends Controller
      */
     public function destroy($id)
     {
-        $information = Information::findOrFail($id);
-        $information->delete();
+        $organization = Organization::findOrFail($id);
+        $organization->delete();
 
-        return redirect('information')->with('message', 'Data informasi berhasil dihapus!');
+        return redirect('organization')->with('message', 'Data organisasi berhasil dihapus!');
     }
 
     public function status($id)
     {   
-        $information = Information::findOrFail($id);
+        $organization = Organization::findOrFail($id);
         $data = [
-            'status' => $information->status == 0 ? 1 : 0,
+            'status' => $organization->status == 0 ? 1 : 0,
         ];
         $non = [
             'status' => 0,
         ];
-        Information::where('status', 1)->update($non);
-        $information->update($data);
+        Organization::where('status', 1)->update($non);
+        $organization->update($data);
 
-        return redirect('information')->with('message', 'Data informasi berhasil diubah!');
+        return redirect('organization')->with('message', 'Data organisasi berhasil diubah!');
     }
 }

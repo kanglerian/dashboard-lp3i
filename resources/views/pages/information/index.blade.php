@@ -4,11 +4,9 @@
     <div class="flex-1 overflow-x-auto px-2">
         <div class="space-y-2 mb-2">
             <a href="banner">
-                <h1 class="font-bold text-2xl">Information</h1>
+                <h1 class="font-bold text-2xl">Informasi</h1>
             </a>
-            <p class="text-gray-500 text-sm">Fitur banner adalah gambar yang dapat digunakan pada halaman depan untuk
-                menyampaikan informasi atau iklan. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa
-                harus mengubah bagian lain dari halaman.</p>
+            <p class="text-gray-500 text-sm">Fitur informasi adalah konten yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam informasi berupa video. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
             <span role="button" onclick="copyLinkAPI()"
                 class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i>
                 <span id="linkAPI">/api/informations</span></span>
@@ -34,18 +32,7 @@
             </div>
             <div class="flex-1 space-y-2">
                 <div>
-                    <select name="status"
-                        class="w-full p-2 text-gray-700 border border-gray-300 @error('status') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                        required>
-                        <option>Pilih</option>
-                        <option value="1">Aktif</option>
-                        <option value="0">Tidak aktif</option>
-                    </select>
-                    <small class="mt-2 text-xs text-red-500">
-                        {{ $errors->first('status') }}</small>
-                </div>
-                <div>
-                    <textarea type="text" name="description"
+                    <textarea type="text" name="description" rows="4"
                         class="w-full p-2 text-gray-700 border border-gray-300 @error('description') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Tulis deskripsi disini.."></textarea>
                     <small class="mt-2 text-xs text-red-500">

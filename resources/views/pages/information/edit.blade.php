@@ -38,18 +38,6 @@
                         <small class="mt-2 text-xs text-red-500">
                             {{ $errors->first('description') }}</small>
                     </div>
-                    <div class="flex-2">
-                        <select name="status"
-                            class="w-full p-2 text-gray-700 border border-gray-300 @error('status') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                            required>
-                            <option value="{{ $information->status }}">{{ $information->status == 1 ? 'Aktif' : 'Tidak aktif' }}
-                            </option>
-                            <option value="{{ $information->status == 1 ? 0 : 1 }}">{{ $information->status == 1 ? 'Tidak aktif' : 'Aktif' }}
-                            </option>
-                        </select>
-                        <small class="mt-2 text-xs text-red-500">
-                            {{ $errors->first('status') }}</small>
-                    </div>
                     <div>
                         <button type="submit" class="bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
                                 class="fa-solid fa-floppy-disk"></i> <span id="btnSubmit">Simpan perubahan</span></button>
