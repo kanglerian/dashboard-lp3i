@@ -5,9 +5,9 @@
         <div class="space-y-2">
             <a href="{{ route('banner.index') }}" class="inline-block text-sm bg-slate-100 text-slate-900 px-4 py-2 rounded-lg mb-2"><span><i class="fa-solid fa-circle-chevron-left"></i></span> Kembali</a>
             <a href="{{ route('banner.index') }}">
-                <h1 class="font-bold text-2xl">Edit Banner {{ $banner->title }}</h1>
+                <h1 class="font-bold text-2xl">Edit Spanduk {{ $banner->title }}</h1>
             </a>
-            <p class="text-gray-500 text-sm">Fitur banner adalah gambar yang dapat digunakan pada halaman depan untuk
+            <p class="text-gray-500 text-sm">Fitur spanduk adalah gambar yang dapat digunakan pada halaman depan untuk
                 menyampaikan informasi atau iklan. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa
                 harus mengubah bagian lain dari halaman.</p>
         </div>

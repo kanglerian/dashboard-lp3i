@@ -12,6 +12,7 @@ use App\Http\Controllers\API\InformationAPIController;
 use App\Http\Controllers\API\MediaAPIController;
 use App\Http\Controllers\API\OrganizationAPIController;
 use App\Http\Controllers\API\OrmawaAPIController;
+use App\Http\Controllers\API\ProgramAPIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +41,4 @@ Route::get('/agendas', [AgendaAPIController::class, 'index']);
 Route::get('/medias', [MediaAPIController::class, 'index']);
 Route::get('/articles', [ArticleAPIController::class, 'index']);
 Route::get('/ormawas', [OrmawaAPIController::class, 'index']);
+Route::get('/programs', [ProgramAPIController::class, 'index']);

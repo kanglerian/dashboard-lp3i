@@ -5,11 +5,9 @@
         <div class="space-y-2">
             <a href="{{ route('documentation.index') }}" class="inline-block text-sm bg-slate-100 text-slate-900 px-4 py-2 rounded-lg mb-2"><span><i class="fa-solid fa-circle-chevron-left"></i></span> Kembali</a>
             <a href="{{ route('documentation.index') }}">
-                <h1 class="font-bold text-2xl">Edit perusahaan {{ $documentation->title }}</h1>
+                <h1 class="font-bold text-2xl">Edit Dokumentasi {{ $documentation->title }}</h1>
             </a>
-            <p class="text-gray-500 text-sm">Fitur benefit adalah gambar yang dapat digunakan pada halaman depan untuk
-                menyampaikan informasi atau iklan. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa
-                harus mengubah bagian lain dari halaman.</p>
+            <p class="text-gray-500 text-sm">Fitur dokumentasi adalah konten yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam kegiatan yang dilaksanakan di LP3I. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
         </div>
         <div class="flex flex-col md:flex-row gap-5 mt-5">
             <div class="w-full md:w-2/4 order-2 md:order-none">

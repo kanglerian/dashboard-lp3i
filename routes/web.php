@@ -13,6 +13,7 @@ use App\Http\Controllers\InformationController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\OrmawaController;
+use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +46,8 @@ Route::resource('agenda', AgendaController::class)->middleware('auth');
 Route::resource('media', MediaController::class)->middleware('auth');
 Route::resource('article', ArticleController::class)->middleware('auth');
 Route::resource('ormawa', OrmawaController::class)->middleware('auth');
+Route::resource('program', ProgramController::class)->middleware('auth');
+
 
 Route::patch('information/change/{id}', [InformationController::class, 'status'])->name('information.change')->middleware('auth');
 

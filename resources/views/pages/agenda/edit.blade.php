@@ -7,7 +7,7 @@
             <a href="{{ route('agenda.index') }}">
                 <h1 class="font-bold text-2xl">Edit agenda {{ $agenda->title }}</h1>
             </a>
-            <p class="text-gray-500 text-sm">Fitur benefit adalah gambar yang dapat digunakan pada halaman depan untuk
+            <p class="text-gray-500 text-sm">Fitur agenda adalah gambar yang dapat digunakan pada halaman depan untuk
                 menyampaikan informasi atau iklan. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa
                 harus mengubah bagian lain dari halaman.</p>
         </div>

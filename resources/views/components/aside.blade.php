@@ -44,7 +44,7 @@
         </li>
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
-            <a href="program"><i class="fa-solid fa-school mr-1"></i> Program Studi</a>
+            <a href="{{ route('program.index') }}"><i class="fa-solid fa-school mr-1"></i> Program Studi</a>
         </li>
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">

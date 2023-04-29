@@ -7,9 +7,7 @@
             <a href="{{ route('information.index') }}">
                 <h1 class="font-bold text-2xl">Edit Informasi {{ $information->title }}</h1>
             </a>
-            <p class="text-gray-500 text-sm">Fitur benefit adalah gambar yang dapat digunakan pada halaman depan untuk
-                menyampaikan informasi atau iklan. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa
-                harus mengubah bagian lain dari halaman.</p>
+            <p class="text-gray-500 text-sm">Fitur informasi adalah konten yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam informasi berupa video. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
         </div>
         <div class="flex flex-col md:flex-row gap-5 mt-5">
             <div class="w-full md:w-1/2 order-2 md:order-none">
