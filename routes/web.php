@@ -29,8 +29,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [LoginController::class, 'index'])->name('/');
+Route::get('/davtaru', [LoginController::class, 'davtaru'])->name('/davtaru');
 
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+Route::post('/daptar', [LoginController::class, 'daptar'])->name('daptar');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 

@@ -1,6 +1,14 @@
 /node_modules
 /public/hot
+/public/agendas
+/public/articles
 /public/banners
+/public/benefits
+/public/companies
+/public/documentations
+/public/facilities
+/public/medias
+/public/programs
 /storage/*.key
 # /vendor
 
