@@ -15,7 +15,14 @@ class ProgramAPIController extends Controller
 
     public function show($uuid)
     {
-        $program = Program::where('uuid',$uuid)->first();
-        return response()->json($program);
+        $program = Program::where('uuid', $uuid)->first();
+        return response()->json([
+            'uuid' => $program->uuid,
+            'title' => $program->title,
+            'campus' => $program->campus,
+            'level' => $program->level,
+            'image' => $program->image,
+            'status' => $program->status,
+        ]);
     }
 }
