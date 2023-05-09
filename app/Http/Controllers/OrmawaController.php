@@ -46,15 +46,15 @@ class OrmawaController extends Controller
             'status' => 'required|boolean',
         ]);
         $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('benefits'), $imageName);
+        $request->image->move(public_path('ormawas'), $imageName);
         $data = [
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'image' => 'benefits/' . $imageName,
+            'image' => 'ormawas/' . $imageName,
             'status' => $request->input('status'),
         ];
         Ormawa::create($data);
-        return redirect('benefit')->with('message', 'Data benefit berhasil ditambahkan!');
+        return redirect('ormawa')->with('message', 'Data ormawa berhasil ditambahkan!');
     }
 
     /**
