@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Program;
+use App\Models\ProgramVision;
+use App\Models\ProgramMision;
+use App\Models\ProgramBenefit;
+use App\Models\ProgramCareer;
+use App\Models\ProgramCompetence;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -66,9 +71,22 @@ class ProgramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($uuid)
+    {   
+        $visions = ProgramVision::where('uuid', $uuid)->get();
+        $misions = ProgramMision::where('uuid', $uuid)->get();
+        $benefits = ProgramBenefit::where('uuid', $uuid)->get();
+        $careers = ProgramCareer::where('uuid', $uuid)->get();
+        $competences = ProgramCompetence::where('uuid', $uuid)->get();
+        $program = Program::where('uuid', $uuid)->first();
+        return view('pages.program.detail')->with([
+            'program' => $program,
+            'visions' => $visions,
+            'misions' => $misions,
+            'benefits' => $benefits,
+            'careers' => $careers,
+            'competences' => $competences,
+        ]);
     }
 
     /**

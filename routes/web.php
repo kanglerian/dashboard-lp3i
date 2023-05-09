@@ -13,7 +13,12 @@ use App\Http\Controllers\InformationController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\OrmawaController;
+use App\Http\Controllers\ProgramBenefitController;
+use App\Http\Controllers\ProgramCareerController;
+use App\Http\Controllers\ProgramCompetenceController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ProgramMisionController;
+use App\Http\Controllers\ProgramVisionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +54,11 @@ Route::resource('media', MediaController::class)->middleware('auth');
 Route::resource('article', ArticleController::class)->middleware('auth');
 Route::resource('ormawa', OrmawaController::class)->middleware('auth');
 Route::resource('program', ProgramController::class)->middleware('auth');
+Route::resource('vision', ProgramVisionController::class)->middleware('auth');
+Route::resource('mision', ProgramMisionController::class)->middleware('auth');
+Route::resource('benefit', ProgramBenefitController::class)->middleware('auth');
+Route::resource('career', ProgramCareerController::class)->middleware('auth');
+Route::resource('competence', ProgramCompetenceController::class)->middleware('auth');
 
 
 Route::patch('information/change/{id}', [InformationController::class, 'status'])->name('information.change')->middleware('auth');

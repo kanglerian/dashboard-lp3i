@@ -13,6 +13,11 @@ use App\Http\Controllers\API\MediaAPIController;
 use App\Http\Controllers\API\OrganizationAPIController;
 use App\Http\Controllers\API\OrmawaAPIController;
 use App\Http\Controllers\API\ProgramAPIController;
+use App\Http\Controllers\API\ProgramBenefitAPIController;
+use App\Http\Controllers\API\ProgramCareerAPIController;
+use App\Http\Controllers\API\ProgramCompetenceAPIController;
+use App\Http\Controllers\API\ProgramMisionAPIController;
+use App\Http\Controllers\API\ProgramVisionAPIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +48,13 @@ Route::get('/articles', [ArticleAPIController::class, 'index']);
 Route::get('/ormawas', [OrmawaAPIController::class, 'index']);
 Route::get('/programs', [ProgramAPIController::class, 'index']);
 Route::get('/programs/{uuid}', [ProgramAPIController::class, 'show']);
+Route::get('/visions', [ProgramVisionAPIController::class, 'index']);
+Route::get('/visions/{uuid}', [ProgramVisionAPIController::class, 'show']);
+Route::get('/misions', [ProgramMisionAPIController::class, 'index']);
+Route::get('/misions/{uuid}', [ProgramMisionAPIController::class, 'show']);
+Route::get('/benefits', [ProgramBenefitAPIController::class, 'index']);
+Route::get('/benefits/{uuid}', [ProgramBenefitAPIController::class, 'show']);
+Route::get('/careers', [ProgramCareerAPIController::class, 'index']);
+Route::get('/careers/{uuid}', [ProgramCareerAPIController::class, 'show']);
+Route::get('/competences', [ProgramCompetenceAPIController::class, 'index']);
+Route::get('/competences/{uuid}', [ProgramCompetenceAPIController::class, 'show']);

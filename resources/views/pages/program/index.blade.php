@@ -6,7 +6,9 @@
             <a href="banner">
                 <h1 class="font-bold text-2xl">Program Studi</h1>
             </a>
-            <p class="text-gray-500 text-sm">Fitur program studi adalah konten yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam program studi yang ada di LP3I. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
+            <p class="text-gray-500 text-sm">Fitur program studi adalah konten yang dapat digunakan pada halaman depan untuk
+                menyampaikan berbagai macam program studi yang ada di LP3I. Ini adalah cara yang berguna dan nyaman untuk
+                memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
             <span role="button" onclick="copyLinkAPI()"
                 class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i>
                 <span id="linkAPI">/api/programs</span></span>
@@ -103,7 +105,9 @@
                                     {{ $program->campus }}
                                 </p>
                             </th>
-                            <td colspan="2" class="space-y-2 px-6 py-4">
+                            <td colspan="3" class="space-y-2 px-6 py-4">
+                                <a href="{{ route('program.show', $program->uuid) }}"
+                                    class="mb-2 w-full md:w-auto block md:inline-block text-center bg-sky-500 px-2 py-1 text-sm rounded text-white"><i class="fa-solid fa-eye"></i></a>
                                 <!-- Toggle -->
                                 <form action="{{ route('program.update', $program->id) }}" method="POST" class="inline">
                                     @csrf
@@ -119,13 +123,13 @@
                                 </form>
                                 <!-- Edit -->
                                 <button
-                                    class="w-full md:w-auto block md:inline text-center bg-amber-400 px-2 py-1 text-sm rounded text-white"><a
+                                    class="w-full md:w-auto block md:inline-block text-center bg-amber-400 px-2 py-1 text-sm rounded text-white"><a
                                         href="{{ route('program.edit', $program->id) }}"><i
                                             class="fa-regular fa-pen-to-square"></i></a></button>
                                 <!-- Delete -->
                                 <button role="button" data-modal-target="popup-modal{{ $program->id }}"
                                     data-modal-toggle="popup-modal{{ $program->id }}"
-                                    class="w-full md:w-auto block md:inline text-center bg-red-600 px-2 py-1 text-sm rounded text-white"><i
+                                    class="w-full md:w-auto block md:inline-block text-center bg-red-600 px-2 py-1 text-sm rounded text-white"><i
                                         class="fa-solid fa-trash"></i></button>
                                 <div id="popup-modal{{ $program->id }}" tabindex="-1"
                                     class="hidden fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">

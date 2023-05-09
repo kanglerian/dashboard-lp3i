@@ -145,8 +145,8 @@
     </script>
 
     <script>
-        const copyLinkAPI = () => {
-            const linkAPI = document.getElementById('linkAPI').innerText;
+        const copyLinkAPI = (content) => {
+            const linkAPI = content;
             const textarea = document.createElement("textarea");
             textarea.value = `{{ route('/') }}${linkAPI}`;
             textarea.style.position = "fixed";
