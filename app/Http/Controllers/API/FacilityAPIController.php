@@ -10,10 +10,6 @@ class FacilityAPIController extends Controller
     public function index()
     {
         $facilities = Facility::all();
-        return response()->json([
-            'title' => $facilities->title,
-            'image' => $facilities->image,
-            'status' => $facilities->status,
-        ]);
+        return response()->json($facilities);
     }
 }

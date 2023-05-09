@@ -10,10 +10,6 @@ class DocumentationAPIController extends Controller
     public function index()
     {
         $documentations = Documentation::all();
-        return response()->json([
-            'title' => $documentations->title,
-            'image' => $documentations->image,
-            'status' => $documentations->status,
-        ]);
+        return response()->json($documentations);
     }
 }

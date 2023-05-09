@@ -10,10 +10,6 @@ class CompanyAPIController extends Controller
     public function index()
     {
         $companies = Company::all();
-        return response()->json([
-            'name' => $companies->name,
-            'image' => $companies->image,
-            'status' => $companies->status,
-        ]);
+        return response()->json($companies);
     }
 }
