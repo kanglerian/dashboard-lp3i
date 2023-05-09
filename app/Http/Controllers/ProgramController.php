@@ -109,6 +109,7 @@ class ProgramController extends Controller
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('programs'), $imageName);
             $data = [
+                'uuid' => Str::random(10),
                 'title' => $request->input('title'),
                 'campus' => $request->input('campus'),
                 'level' => $request->input('level'),
@@ -117,6 +118,7 @@ class ProgramController extends Controller
             ];
         } else {
             $data = [
+                'uuid' => Str::random(10),
                 'title' => $request->input('title'),
                 'campus' => $request->input('campus'),
                 'level' => $request->input('level'),
