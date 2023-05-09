@@ -12,4 +12,10 @@ class ProgramAPIController extends Controller
         $programs = Program::all();
         return response()->json($programs);
     }
+
+    public function show($uuid)
+    {
+        $program = Program::where('uuid',$uuid)->first();
+        return response()->json($program);
+    }
 }

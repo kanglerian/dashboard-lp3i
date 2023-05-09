@@ -42,3 +42,4 @@ Route::get('/medias', [MediaAPIController::class, 'index']);
 Route::get('/articles', [ArticleAPIController::class, 'index']);
 Route::get('/ormawas', [OrmawaAPIController::class, 'index']);
 Route::get('/programs', [ProgramAPIController::class, 'index']);
+Route::get('/programs/{uuid}', [ProgramAPIController::class, 'show']);
