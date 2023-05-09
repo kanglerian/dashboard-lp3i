@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Program;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class ProgramController extends Controller
 {
@@ -48,6 +49,7 @@ class ProgramController extends Controller
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('programs'), $imageName);
         $data = [
+            'uuid' => Str::random(10),
             'title' => $request->input('title'),
             'campus' => $request->input('campus'),
             'level' => $request->input('level'),

@@ -11,6 +11,7 @@ class Program extends Model
     
     protected $table = 'programs';
     protected $fillable = [
+        'uuid',
         'title',
         'campus',
         'level',
