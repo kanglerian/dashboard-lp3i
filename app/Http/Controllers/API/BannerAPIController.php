@@ -11,6 +11,10 @@ class BannerAPIController extends Controller
     public function index()
     {
         $banners = Banner::all();
-        return response()->json($banners);
+        return response()->json([
+            'title' => $banners->title,
+            'image' => $banners->image,
+            'status' => $banners->status,
+        ]);
     }
 }

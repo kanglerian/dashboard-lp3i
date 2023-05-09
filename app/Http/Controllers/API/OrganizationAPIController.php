@@ -10,6 +10,10 @@ class OrganizationAPIController extends Controller
     public function index()
     {
         $organizations = Organization::all();
-        return response()->json($organizations);
+        return response()->json([
+            'title' => $organizations->title,
+            'drawio' => $organizations->drawio,
+            'status' => $organizations->status
+        ]);
     }
 }

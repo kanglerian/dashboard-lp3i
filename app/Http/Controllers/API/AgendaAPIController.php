@@ -10,6 +10,11 @@ class AgendaAPIController extends Controller
     public function index()
     {
         $agendas = Agenda::all();
-        return response()->json($agendas);
+        return response()->json([
+            'title' => $agendas->title,
+            'date' => $agendas->date,
+            'image' => $agendas->image,
+            'status' => $agendas->status,
+        ]);
     }
 }

@@ -10,6 +10,11 @@ class OrmawaAPIController extends Controller
     public function index()
     {
         $ormawas = Ormawa::all();
-        return response()->json($ormawas);
+        return response()->json([
+            'title' => $ormawas->title,
+            'description' => $ormawas->description,
+            'image' => $ormawas->image,
+            'status' => $ormawas->status
+        ]);
     }
 }

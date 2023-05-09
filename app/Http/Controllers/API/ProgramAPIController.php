@@ -10,7 +10,14 @@ class ProgramAPIController extends Controller
     public function index()
     {
         $programs = Program::all();
-        return response()->json($programs);
+        return response()->json([
+            'uuid' => $programs->uuid,
+            'title' => $programs->title,
+            'campus' => $programs->campus,
+            'level' => $programs->level,
+            'image' => $programs->image,
+            'status' => $programs->status,
+        ]);
     }
 
     public function show($uuid)

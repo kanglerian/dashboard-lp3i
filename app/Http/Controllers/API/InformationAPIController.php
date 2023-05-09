@@ -10,6 +10,11 @@ class InformationAPIController extends Controller
     public function index()
     {
         $informations = Information::all();
-        return response()->json($informations);
+        return response()->json([
+            'title' => $informations->title,
+            'description' => $informations->description,
+            'youtube' => $informations->youtube,
+            'status' => $informations->status,
+        ]);
     }
 }
