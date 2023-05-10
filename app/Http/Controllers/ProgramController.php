@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Program;
+use App\Models\ProgramAlumni;
 use App\Models\ProgramVision;
 use App\Models\ProgramMision;
 use App\Models\ProgramBenefit;
@@ -78,6 +79,7 @@ class ProgramController extends Controller
         $benefits = ProgramBenefit::where('uuid', $uuid)->get();
         $careers = ProgramCareer::where('uuid', $uuid)->get();
         $competences = ProgramCompetence::where('uuid', $uuid)->get();
+        $alumnis = ProgramAlumni::where('uuid', $uuid)->get();
         $program = Program::where('uuid', $uuid)->first();
         return view('pages.program.detail')->with([
             'program' => $program,
@@ -86,6 +88,7 @@ class ProgramController extends Controller
             'benefits' => $benefits,
             'careers' => $careers,
             'competences' => $competences,
+            'alumnis' => $alumnis,
         ]);
     }
 

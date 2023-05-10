@@ -13,6 +13,7 @@ use App\Http\Controllers\InformationController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\OrmawaController;
+use App\Http\Controllers\ProgramAlumniController;
 use App\Http\Controllers\ProgramBenefitController;
 use App\Http\Controllers\ProgramCareerController;
 use App\Http\Controllers\ProgramCompetenceController;
@@ -59,6 +60,7 @@ Route::resource('mision', ProgramMisionController::class)->middleware('auth');
 Route::resource('benefit', ProgramBenefitController::class)->middleware('auth');
 Route::resource('career', ProgramCareerController::class)->middleware('auth');
 Route::resource('competence', ProgramCompetenceController::class)->middleware('auth');
+Route::resource('alumni', ProgramAlumniController::class)->middleware('auth');
 
 
 Route::patch('information/change/{id}', [InformationController::class, 'status'])->name('information.change')->middleware('auth');
