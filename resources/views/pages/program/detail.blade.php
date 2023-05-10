@@ -84,7 +84,7 @@
         <hr class="my-5">
         <div class="flex flex-col gap-2">
             <div class="flex-1">
-                <form action="{{ route('vision.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
+                <form action="{{ route('programvision.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
                     method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="flex-1 space-y-2">
@@ -142,7 +142,7 @@
                                         {{ $vision->vision }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
-                                        <form action="{{ route('vision.update', $vision->id) }}" method="POST"
+                                        <form action="{{ route('programvision.update', $vision->id) }}" method="POST"
                                             class="inline">
                                             @csrf
                                             @method('PATCH')
@@ -176,7 +176,7 @@
                                                             menghapus visi ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('vision.destroy', $vision->id) }}"
+                                                            <form action="{{ route('programvision.destroy', $vision->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -207,7 +207,7 @@
             </div>
             <hr class="my-3">
             <div class="flex-1">
-                <form action="{{ route('mision.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
+                <form action="{{ route('programmision.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
                     method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="flex-1 space-y-2">
@@ -265,7 +265,7 @@
                                         {{ $mision->mision }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
-                                        <form action="{{ route('mision.update', $mision->id) }}" method="POST"
+                                        <form action="{{ route('programmision.update', $mision->id) }}" method="POST"
                                             class="inline">
                                             @csrf
                                             @method('PATCH')
@@ -299,7 +299,7 @@
                                                             menghapus misi ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('mision.destroy', $mision->id) }}"
+                                                            <form action="{{ route('programmision.destroy', $mision->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -332,7 +332,7 @@
         <hr class="my-5">
         <div class="flex flex-col gap-2">
             <div class="flex-1">
-                <form action="{{ route('benefit.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
+                <form action="{{ route('programbenefit.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
                     method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="flex-1 space-y-2">
@@ -390,7 +390,7 @@
                                         {{ $benefit->benefit }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
-                                        <form action="{{ route('benefit.update', $benefit->id) }}" method="POST"
+                                        <form action="{{ route('programbenefit.update', $benefit->id) }}" method="POST"
                                             class="inline">
                                             @csrf
                                             @method('PATCH')
@@ -424,7 +424,7 @@
                                                             menghapus keunggulan ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('benefit.destroy', $benefit->id) }}"
+                                                            <form action="{{ route('programbenefit.destroy', $benefit->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -455,7 +455,7 @@
             </div>
             <hr class="my-3">
             <div class="flex-1">
-                <form action="{{ route('career.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
+                <form action="{{ route('programcareer.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
                     method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="flex-1 space-y-2">
@@ -513,7 +513,7 @@
                                         {{ $career->career }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
-                                        <form action="{{ route('career.update', $career->id) }}" method="POST"
+                                        <form action="{{ route('programcareer.update', $career->id) }}" method="POST"
                                             class="inline">
                                             @csrf
                                             @method('PATCH')
@@ -547,7 +547,7 @@
                                                             menghapus potensi karir ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('career.destroy', $career->id) }}"
+                                                            <form action="{{ route('programcareer.destroy', $career->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -580,7 +580,7 @@
         <hr class="my-5">
         <div class="flex flex-col gap-2">
             <div class="flex-1">
-                <form action="{{ route('competence.store') }}"
+                <form action="{{ route('programcompetence.store') }}"
                     class="flex flex-col md:flex-row md:items-start gap-4 py-3" method="POST"
                     enctype="multipart/form-data">
                     @csrf
@@ -639,7 +639,7 @@
                                         {{ $competence->competence }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
-                                        <form action="{{ route('competence.update', $competence->id) }}" method="POST"
+                                        <form action="{{ route('programcompetence.update', $competence->id) }}" method="POST"
                                             class="inline">
                                             @csrf
                                             @method('PATCH')
@@ -675,7 +675,7 @@
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
                                                             <form
-                                                                action="{{ route('competence.destroy', $competence->id) }}"
+                                                                action="{{ route('programcompetence.destroy', $competence->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -705,7 +705,7 @@
                 </div>
             </div>
             <div class="flex-1">
-                <form action="{{ route('alumni.store') }}"
+                <form action="{{ route('programalumni.store') }}"
                     class="flex flex-col md:flex-row md:items-start gap-4 py-3" method="POST"
                     enctype="multipart/form-data">
                     @csrf
@@ -809,7 +809,7 @@
                                         <span>{{ $alumni->work }}</span>
                                     </td>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
-                                        <form action="{{ route('alumni.update', $alumni->id) }}" method="POST"
+                                        <form action="{{ route('programalumni.update', $alumni->id) }}" method="POST"
                                             class="inline">
                                             @csrf
                                             @method('PATCH')
@@ -822,7 +822,7 @@
                                             <input type="hidden" name="status"
                                                 value="{{ $alumni->status == 1 ? 0 : 1 }}">
                                             <button role="button" type="submit"
-                                                class="w-full md:w-auto block md:inline text-center text-white px-2 py-1 text-sm rounded {{ $competence->status == 1 ? 'bg-blue-500' : 'bg-red-500' }}">{!! $competence->status == 1
+                                                class="w-full md:w-auto block md:inline text-center text-white px-2 py-1 text-sm rounded {{ $alumni->status == 1 ? 'bg-blue-500' : 'bg-red-500' }}">{!! $alumni->status == 1
                                                     ? '<i class="fa-solid fa-toggle-on fa-1x"></i>'
                                                     : '<i class="fa-solid fa-toggle-off fa-1x"></i>' !!}</button>
                                         </form>
@@ -847,7 +847,7 @@
                                                             menghapus kompetensi ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('alumni.destroy', $alumni->id) }}"
+                                                            <form action="{{ route('programalumni.destroy', $alumni->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')

@@ -55,12 +55,12 @@ Route::resource('media', MediaController::class)->middleware('auth');
 Route::resource('article', ArticleController::class)->middleware('auth');
 Route::resource('ormawa', OrmawaController::class)->middleware('auth');
 Route::resource('program', ProgramController::class)->middleware('auth');
-Route::resource('vision', ProgramVisionController::class)->middleware('auth');
-Route::resource('mision', ProgramMisionController::class)->middleware('auth');
-Route::resource('benefit', ProgramBenefitController::class)->middleware('auth');
-Route::resource('career', ProgramCareerController::class)->middleware('auth');
-Route::resource('competence', ProgramCompetenceController::class)->middleware('auth');
-Route::resource('alumni', ProgramAlumniController::class)->middleware('auth');
+Route::resource('programvision', ProgramVisionController::class)->middleware('auth');
+Route::resource('programmision', ProgramMisionController::class)->middleware('auth');
+Route::resource('programbenefit', ProgramBenefitController::class)->middleware('auth');
+Route::resource('programcareer', ProgramCareerController::class)->middleware('auth');
+Route::resource('programcompetence', ProgramCompetenceController::class)->middleware('auth');
+Route::resource('programalumni', ProgramAlumniController::class)->middleware('auth');
 
 
 Route::patch('information/change/{id}', [InformationController::class, 'status'])->name('information.change')->middleware('auth');
