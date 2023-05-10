@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ormawa;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class OrmawaController extends Controller
 {
@@ -48,6 +49,7 @@ class OrmawaController extends Controller
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('ormawas'), $imageName);
         $data = [
+            'uuid' => Str::random(10),
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'image' => 'ormawas/' . $imageName,

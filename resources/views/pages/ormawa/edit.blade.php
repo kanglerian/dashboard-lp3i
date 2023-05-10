@@ -16,6 +16,7 @@
                     @csrf
                     @method('PATCH')
                     <div class="flex-1">
+                        <input type="hidden" name="uuid" value="{{ $ormawa->uuid }}">
                         <input type="text" name="title" value="{{ $ormawa->title }}"
                             class="w-full p-2 text-gray-700 border border-gray-300 @error('title') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Tulis judul disini..">

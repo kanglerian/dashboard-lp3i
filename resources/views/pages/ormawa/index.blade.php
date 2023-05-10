@@ -107,6 +107,7 @@
                                 <form action="{{ route('ormawa.update', $ormawa->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('PATCH')
+                                    <input type="hidden" name="uuid" value="{{ $ormawa->uuid }}">
                                     <input type="hidden" name="title" value="{{ $ormawa->title }}">
                                     <input type="hidden" name="description" value="{{ $ormawa->description }}">
                                     <input type="hidden" name="status" value="{{ $ormawa->status == 1 ? 0 : 1 }}">
