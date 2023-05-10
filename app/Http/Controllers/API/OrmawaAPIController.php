@@ -12,4 +12,10 @@ class OrmawaAPIController extends Controller
         $ormawas = Ormawa::all();
         return response()->json($ormawas);
     }
+
+    public function show($uuid)
+    {
+        $ormawa = Ormawa::where('uuid', $uuid)->get();
+        return response()->json($ormawa);
+    }
 }

@@ -47,6 +47,7 @@ Route::get('/agendas', [AgendaAPIController::class, 'index']);
 Route::get('/medias', [MediaAPIController::class, 'index']);
 Route::get('/articles', [ArticleAPIController::class, 'index']);
 Route::get('/ormawas', [OrmawaAPIController::class, 'index']);
+Route::get('/ormawas/{uuid}', [OrmawaAPIController::class, 'show']);
 Route::get('/programs', [ProgramAPIController::class, 'index']);
 Route::get('/programs/{uuid}', [ProgramAPIController::class, 'show']);
 Route::get('/visions', [ProgramVisionAPIController::class, 'index']);
