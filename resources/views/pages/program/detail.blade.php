@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <div>
-                        <span role="button" onclick="copyLinkAPI('/api/visions/{{ $program->uuid }}')"
+                        <span role="button" onclick="copyLinkAPI('/api/programvisions/{{ $program->uuid }}')"
                             class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i
                                 class="fa-solid fa-link"></i> Salin API</span>
                         <button type="submit" class="bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
@@ -221,7 +221,7 @@
                         </div>
                     </div>
                     <div>
-                        <span role="button" onclick="copyLinkAPI('/api/misions/{{ $program->uuid }}')"
+                        <span role="button" onclick="copyLinkAPI('/api/programmisions/{{ $program->uuid }}')"
                             class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i
                                 class="fa-solid fa-link"></i> Salin API</span>
                         <button type="submit" class="bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
@@ -346,7 +346,7 @@
                         </div>
                     </div>
                     <div>
-                        <span role="button" onclick="copyLinkAPI('/api/benefits/{{ $program->uuid }}')"
+                        <span role="button" onclick="copyLinkAPI('/api/programbenefits/{{ $program->uuid }}')"
                             class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i
                                 class="fa-solid fa-link"></i> Salin API</span>
                         <button type="submit" class="bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
@@ -469,7 +469,7 @@
                         </div>
                     </div>
                     <div>
-                        <span role="button" onclick="copyLinkAPI('/api/careers/{{ $program->uuid }}')"
+                        <span role="button" onclick="copyLinkAPI('/api/programcareers/{{ $program->uuid }}')"
                             class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i
                                 class="fa-solid fa-link"></i> Salin API</span>
                         <button type="submit" class="bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
@@ -595,7 +595,7 @@
                         </div>
                     </div>
                     <div>
-                        <span role="button" onclick="copyLinkAPI('/api/competences/{{ $program->uuid }}')"
+                        <span role="button" onclick="copyLinkAPI('/api/programcompetences/{{ $program->uuid }}')"
                             class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i
                                 class="fa-solid fa-link"></i> Salin API</span>
                         <button type="submit" class="bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
@@ -752,7 +752,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col space-y-2">
-                        <span role="button" onclick="copyLinkAPI('/api/alumnis/{{ $program->uuid }}')"
+                        <span role="button" onclick="copyLinkAPI('/api/programalumnis/{{ $program->uuid }}')"
                             class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i
                                 class="fa-solid fa-link"></i> Salin API</span>
                         <button type="submit" class="bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
