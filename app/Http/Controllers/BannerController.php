@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Banner;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class BannerController extends Controller
 {

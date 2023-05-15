@@ -12,11 +12,13 @@ class ProgramAlumni extends Model
     protected $table = 'programs_alumni';
     protected $fillable = [
         'uuid',
+        'image',
         'name',
         'school',
         'work',
         'profession',
         'quote',
+        'year',
         'status',
     ];
 

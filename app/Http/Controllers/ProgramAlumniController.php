@@ -37,20 +37,27 @@ class ProgramAlumniController extends Controller
     {
         $request->validate([
             'uuid' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=1/1',
             'name' => 'required',
             'school' => 'required',
             'work' => 'required',
             'profession' => 'required',
             'quote' => 'required',
+            'year' => 'required',
         ]);
+
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('alumnis'), $imageName);
 
         $data = [
             'uuid' => $request->input('uuid'),
+            'image' => 'alumnis/' . $imageName,
             'name' => $request->input('name'),
             'school' => $request->input('school'),
             'work' => $request->input('work'),
             'profession' => $request->input('profession'),
             'quote' => $request->input('quote'),
+            'year' => $request->input('year'),
             'status' => 1,
         ];
         ProgramAlumni::create($data);
@@ -90,23 +97,50 @@ class ProgramAlumniController extends Controller
     {
         $request->validate([
             'uuid' => 'required',
+            'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=1/1',
             'name' => 'required',
             'school' => 'required',
             'work' => 'required',
             'profession' => 'required',
             'quote' => 'required',
+            'year' => 'required',
             'status' => 'required|boolean',
         ]);
+
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('alumnis'), $imageName);
+
         $ProgramAlumni = ProgramAlumni::findOrFail($id);
-        $data = [
-            'uuid' => $request->input('uuid'),
-            'name' => $request->input('name'),
-            'school' => $request->input('school'),
-            'work' => $request->input('work'),
-            'profession' => $request->input('profession'),
-            'quote' => $request->input('quote'),
-            'status' => $request->input('status'),
-        ];
+
+        if ($request->image) {
+            File::delete(public_path($ProgramAlumni->image));
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('alumnis'), $imageName);
+            $data = [
+                'uuid' => $request->input('uuid'),
+                'image' => 'alumnis/' . $imageName,
+                'name' => $request->input('name'),
+                'school' => $request->input('school'),
+                'work' => $request->input('work'),
+                'profession' => $request->input('profession'),
+                'quote' => $request->input('quote'),
+                'year' => $request->input('year'),
+                'status' => $request->input('status'),
+            ];
+        } else {
+            $data = [
+                'uuid' => $request->input('uuid'),
+                'name' => $request->input('name'),
+                'school' => $request->input('school'),
+                'work' => $request->input('work'),
+                'profession' => $request->input('profession'),
+                'quote' => $request->input('quote'),
+                'year' => $request->input('year'),
+                'status' => $request->input('status'),
+            ];
+        }
+
+        
         $ProgramAlumni->update($data);
         return back()->with('alumni', 'Data alumni berhasil diubah!');
     }
@@ -120,6 +154,7 @@ class ProgramAlumniController extends Controller
     public function destroy($id)
     {
         $ProgramAlumni = ProgramAlumni::findOrFail($id);
+        File::delete(public_path($ProgramAlumni->image));
         $ProgramAlumni->delete();
 
         return back()->with('alumni', 'Data alumni berhasil dihapus!');

@@ -84,8 +84,9 @@
         <hr class="my-5">
         <div class="flex flex-col gap-2">
             <div class="flex-1">
-                <form action="{{ route('programvision.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
-                    method="POST" enctype="multipart/form-data">
+                <form action="{{ route('programvision.store') }}"
+                    class="flex flex-col md:flex-row md:items-start gap-4 py-3" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="flex-1 space-y-2">
                         <div>
@@ -133,12 +134,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($visions as $vision)
+                            @forelse ($visions as $no => $vision)
                                 <tr class="bg-white border-b transition ease-in-out duration-200 hover:bg-gray-50">
                                     <td class="px-6 py-4">
-                                        1
+                                        {{ $no + 1 }}
                                     </td>
-                                    <th scope="row" class="px-6 py-4">
+                                    <th class="px-6 py-4 font-light">
                                         {{ $vision->vision }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
@@ -176,7 +177,8 @@
                                                             menghapus visi ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('programvision.destroy', $vision->id) }}"
+                                                            <form
+                                                                action="{{ route('programvision.destroy', $vision->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -207,8 +209,9 @@
             </div>
             <hr class="my-3">
             <div class="flex-1">
-                <form action="{{ route('programmision.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
-                    method="POST" enctype="multipart/form-data">
+                <form action="{{ route('programmision.store') }}"
+                    class="flex flex-col md:flex-row md:items-start gap-4 py-3" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="flex-1 space-y-2">
                         <div>
@@ -256,12 +259,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($misions as $mision)
+                            @forelse ($misions as $no => $mision)
                                 <tr class="bg-white border-b transition ease-in-out duration-200 hover:bg-gray-50">
                                     <td class="px-6 py-4">
-                                        1
+                                        {{ $no + 1 }}
                                     </td>
-                                    <th scope="row" class="px-6 py-4">
+                                    <th class="px-6 py-4 font-light">
                                         {{ $mision->mision }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
@@ -299,7 +302,8 @@
                                                             menghapus misi ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('programmision.destroy', $mision->id) }}"
+                                                            <form
+                                                                action="{{ route('programmision.destroy', $mision->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -332,8 +336,9 @@
         <hr class="my-5">
         <div class="flex flex-col gap-2">
             <div class="flex-1">
-                <form action="{{ route('programbenefit.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
-                    method="POST" enctype="multipart/form-data">
+                <form action="{{ route('programbenefit.store') }}"
+                    class="flex flex-col md:flex-row md:items-start gap-4 py-3" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="flex-1 space-y-2">
                         <div>
@@ -381,12 +386,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($benefits as $benefit)
+                            @forelse ($benefits as $no => $benefit)
                                 <tr class="bg-white border-b transition ease-in-out duration-200 hover:bg-gray-50">
                                     <td class="px-6 py-4">
-                                        1
+                                        {{ $no + 1 }}
                                     </td>
-                                    <th scope="row" class="px-6 py-4">
+                                    <th scope="row" class="px-6 py-4 font-light">
                                         {{ $benefit->benefit }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
@@ -424,7 +429,8 @@
                                                             menghapus keunggulan ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('programbenefit.destroy', $benefit->id) }}"
+                                                            <form
+                                                                action="{{ route('programbenefit.destroy', $benefit->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -455,8 +461,9 @@
             </div>
             <hr class="my-3">
             <div class="flex-1">
-                <form action="{{ route('programcareer.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
-                    method="POST" enctype="multipart/form-data">
+                <form action="{{ route('programcareer.store') }}"
+                    class="flex flex-col md:flex-row md:items-start gap-4 py-3" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="flex-1 space-y-2">
                         <div>
@@ -504,12 +511,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($careers as $career)
+                            @forelse ($careers as $no => $career)
                                 <tr class="bg-white border-b transition ease-in-out duration-200 hover:bg-gray-50">
                                     <td class="px-6 py-4">
-                                        1
+                                        {{ $no + 1 }}
                                     </td>
-                                    <th scope="row" class="px-6 py-4">
+                                    <th class="px-6 py-4 font-light">
                                         {{ $career->career }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
@@ -547,7 +554,8 @@
                                                             menghapus potensi karir ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('programcareer.destroy', $career->id) }}"
+                                                            <form
+                                                                action="{{ route('programcareer.destroy', $career->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -630,17 +638,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($competences as $competence)
+                            @forelse ($competences as $no => $competence)
                                 <tr class="bg-white border-b transition ease-in-out duration-200 hover:bg-gray-50">
                                     <td class="px-6 py-4">
-                                        1
+                                        {{ $no + 1 }}
                                     </td>
-                                    <th scope="row" class="px-6 py-4">
+                                    <th scope="row" class="px-6 py-4 font-light">
                                         {{ $competence->competence }}
                                     </th>
                                     <td colspan="3" class="space-y-2 px-6 py-4">
-                                        <form action="{{ route('programcompetence.update', $competence->id) }}" method="POST"
-                                            class="inline">
+                                        <form action="{{ route('programcompetence.update', $competence->id) }}"
+                                            method="POST" class="inline">
                                             @csrf
                                             @method('PATCH')
                                             <input type="hidden" name="uuid" value="{{ $competence->uuid }}">
@@ -719,20 +727,27 @@
                                 {{ $errors->first('name') }}</small>
                         </div>
                         <div>
-                            <input type="text" name="school"
-                                class="w-full p-2 text-gray-700 border border-gray-300 @error('school') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Tulis nama sekolah disini..">
-                            <small class="mt-2 text-xs text-red-500">
-                                {{ $errors->first('school') }}</small>
-                        </div>
-                    </div>
-                    <div class="flex-1 space-y-2">
-                        <div>
                             <input type="text" name="work"
                                 class="w-full p-2 text-gray-700 border border-gray-300 @error('work') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Tulis nama perusahaan tempat bekerja disini..">
                             <small class="mt-2 text-xs text-red-500">
                                 {{ $errors->first('work') }}</small>
+                        </div>
+                        <div>
+                            <input type="text" name="year"
+                                class="w-full p-2 text-gray-700 border border-gray-300 @error('year') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Tulis tahun lulus disini..">
+                            <small class="mt-2 text-xs text-red-500">
+                                {{ $errors->first('year') }}</small>
+                        </div>
+                    </div>
+                    <div class="flex-1 space-y-2">
+                        <div>
+                            <input type="text" name="school"
+                                class="w-full p-2 text-gray-700 border border-gray-300 @error('school') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Tulis nama sekolah disini..">
+                            <small class="mt-2 text-xs text-red-500">
+                                {{ $errors->first('school') }}</small>
                         </div>
                         <div>
                             <input type="text" name="profession"
@@ -741,10 +756,19 @@
                             <small class="mt-2 text-xs text-red-500">
                                 {{ $errors->first('profession') }}</small>
                         </div>
+                        <div>
+                            <input type="file" name="image"
+                                class="w-full text-gray-700 border border-gray-300 @error('image') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500">
+                            <small class="mt-2 text-xs text-slate-600"><span class="font-bold">Ketentuan:</span> Ukuran
+                                gambar
+                                dimensi
+                                1:1 (1MB)</small>
+                            <small class="mt-2 text-xs text-red-500">{{ $errors->first('image') }}</small>
+                        </div>
                     </div>
                     <div class="flex-1 space-y-2">
                         <div>
-                            <textarea type="text" name="quote" rows="4"
+                            <textarea type="text" name="quote" rows="7"
                                 class="w-full p-2 text-gray-700 border border-gray-300 @error('quote') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Tulis testimoni alumni disini.."></textarea>
                             <small class="mt-2 text-xs text-red-500">
@@ -793,12 +817,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($alumnis as $alumni)
+                            @forelse ($alumnis as $no => $alumni)
                                 <tr class="bg-white border-b transition ease-in-out duration-200 hover:bg-gray-50">
                                     <td class="px-6 py-4">
-                                        1
+                                        {{ $no + 1 }}
                                     </td>
-                                    <th scope="row" class="px-6 py-4">
+                                    <th scope="row" class="px-6 py-4 font-light">
                                         {{ $alumni->name }}
                                     </th>
                                     <td scope="row" class="px-6 py-4">
@@ -819,6 +843,7 @@
                                             <input type="hidden" name="work" value="{{ $alumni->work }}">
                                             <input type="hidden" name="profession" value="{{ $alumni->profession }}">
                                             <input type="hidden" name="quote" value="{{ $alumni->quote }}">
+                                            <input type="hidden" name="quote" value="{{ $alumni->year }}">
                                             <input type="hidden" name="status"
                                                 value="{{ $alumni->status == 1 ? 0 : 1 }}">
                                             <button role="button" type="submit"
@@ -847,7 +872,8 @@
                                                             menghapus kompetensi ini?
                                                         </h3>
                                                         <div class="flex justify-center gap-2">
-                                                            <form action="{{ route('programalumni.destroy', $alumni->id) }}"
+                                                            <form
+                                                                action="{{ route('programalumni.destroy', $alumni->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
