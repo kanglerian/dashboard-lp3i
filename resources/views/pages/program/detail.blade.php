@@ -843,7 +843,7 @@
                                             <input type="hidden" name="work" value="{{ $alumni->work }}">
                                             <input type="hidden" name="profession" value="{{ $alumni->profession }}">
                                             <input type="hidden" name="quote" value="{{ $alumni->quote }}">
-                                            <input type="hidden" name="quote" value="{{ $alumni->year }}">
+                                            <input type="hidden" name="year" value="{{ $alumni->year }}">
                                             <input type="hidden" name="status"
                                                 value="{{ $alumni->status == 1 ? 0 : 1 }}">
                                             <button role="button" type="submit"
