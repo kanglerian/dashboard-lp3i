@@ -107,9 +107,6 @@ class ProgramAlumniController extends Controller
             'status' => 'required|boolean',
         ]);
 
-        $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('alumnis'), $imageName);
-
         $ProgramAlumni = ProgramAlumni::findOrFail($id);
 
         if ($request->image) {
