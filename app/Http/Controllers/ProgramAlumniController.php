@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProgramAlumni;
+use App\Models\Program;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProgramAlumniController extends Controller
 {
@@ -14,7 +16,12 @@ class ProgramAlumniController extends Controller
      */
     public function index()
     {
-        //
+        $programs = Program::all();
+        $testimonials = ProgramAlumni::all();
+        return view('pages.testimonial.index')->with([
+            'testimonials' => $testimonials,
+            'programs' => $programs,
+        ]);
     }
 
     /**
@@ -58,6 +65,7 @@ class ProgramAlumniController extends Controller
             'profession' => $request->input('profession'),
             'quote' => $request->input('quote'),
             'year' => $request->input('year'),
+            'testimoni' => 0,
             'status' => 1,
         ];
         ProgramAlumni::create($data);
@@ -83,7 +91,12 @@ class ProgramAlumniController extends Controller
      */
     public function edit($id)
     {
-        //
+        $programs = Program::all();
+        $alumni = ProgramAlumni::findOrFail($id);
+        return view('pages.testimonial.edit')->with([
+            'alumni' => $alumni,
+            'programs'=> $programs
+        ]);
     }
 
     /**
@@ -104,6 +117,7 @@ class ProgramAlumniController extends Controller
             'profession' => 'required',
             'quote' => 'required',
             'year' => 'required',
+            'testimoni' => 'required|boolean',
             'status' => 'required|boolean',
         ]);
 
@@ -122,6 +136,7 @@ class ProgramAlumniController extends Controller
                 'profession' => $request->input('profession'),
                 'quote' => $request->input('quote'),
                 'year' => $request->input('year'),
+                'testimoni' => $request->input('testimoni'),
                 'status' => $request->input('status'),
             ];
         } else {
@@ -133,6 +148,7 @@ class ProgramAlumniController extends Controller
                 'profession' => $request->input('profession'),
                 'quote' => $request->input('quote'),
                 'year' => $request->input('year'),
+                'testimoni' => $request->input('testimoni'),
                 'status' => $request->input('status'),
             ];
         }

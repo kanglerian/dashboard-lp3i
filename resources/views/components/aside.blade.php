@@ -38,14 +38,22 @@
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
             <a href="{{ route('agenda.index') }}"><i class="fa-regular fa-calendar-days mr-1"></i> Agenda</a>
         </li>
+
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
             <a href="{{ route('media.index') }}"><i class="fa-solid fa-newspaper mr-1"></i> Media</a>
         </li>
+
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
             <a href="{{ route('program.index') }}"><i class="fa-solid fa-school mr-1"></i> Program Studi</a>
         </li>
+
+        <li
+            class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
+            <a href="{{ route('programalumni.index') }}"><i class="fa-solid fa-comments mr-1"></i> Testimonial</a>
+        </li>
+
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
             <a href="{{ route('article.index') }}"><i class="fa-solid fa-newspaper mr-1"></i> Artikel</a>

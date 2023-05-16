@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+
+use App\Models\ProgramAlumni;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +26,9 @@ class Program extends Model
      *
      * @var array<int, string>
      */
+    public function alumni(){
+        return $this->hasMany(ProgramAlumni::class,'uuid');
+    }
     protected $hidden = [
         'id',
         'created_at',
