@@ -9,7 +9,9 @@
             <a href="{{ route('program.index') }}">
                 <h1 class="font-bold text-2xl">Edit Testimoni {{ $alumni->level }} {{ $alumni->name }}</h1>
             </a>
-            <p class="text-gray-500 text-sm">Fitur program studi adalah konten yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam program studi yang ada di LP3I. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
+            <p class="text-gray-500 text-sm">Fitur program studi adalah konten yang dapat digunakan pada halaman depan untuk
+                menyampaikan berbagai macam program studi yang ada di LP3I. Ini adalah cara yang berguna dan nyaman untuk
+                memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
         </div>
         <div class="flex flex-col md:flex-row gap-5 mt-5">
             <div class="w-full md:w-2/4 order-2 md:order-none">
@@ -58,7 +60,7 @@
                             required>
                             <option value="{{ $alumni->uuid }}">{{ $alumni->program->title }}</option>
                             @foreach ($programs as $program)
-                              <option value="{{ $program->uuid }}">{{ $program->title }}</option>
+                                <option value="{{ $program->uuid }}">{{ $program->title }}</option>
                             @endforeach
                         </select>
                         <small class="mt-2 text-xs text-red-500">
@@ -83,7 +85,8 @@
                         <select name="testimoni"
                             class="w-full p-2 text-gray-700 border border-gray-300 @error('testimoni') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                             required>
-                            <option value="{{ $alumni->testimoni }}">{{ $alumni->testimoni == 1 ? 'Aktif' : 'Tidak aktif' }}
+                            <option value="{{ $alumni->testimoni }}">
+                                {{ $alumni->testimoni == 1 ? 'Aktif' : 'Tidak aktif' }}
                             </option>
                             <option value="{{ $alumni->testimoni == 1 ? 0 : 1 }}">
                                 {{ $alumni->testimoni == 1 ? 'Tidak aktif' : 'Aktif' }}
@@ -91,6 +94,36 @@
                         </select>
                         <small class="mt-2 text-xs text-red-500">
                             {{ $errors->first('testimoni') }}</small>
+                    </div>
+                    <div class="flex-1">
+                        <select name="career"
+                            class="w-full p-2 text-gray-700 border border-gray-300 @error('career') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                            required>
+                            @switch($alumni->career)
+                                @case('M')
+                                    <option value="{{ $alumni->career }}">Magang
+                                    @break
+
+                                    @case('K')
+                                    <option value="{{ $alumni->career }}">Kerja
+                                    @break
+
+                                    @case('W')
+                                    <option value="{{ $alumni->career }}">Wirausaha
+                                    @break
+
+                                    @case('T')
+                                    <option value="{{ $alumni->career }}">Tidak bekerja
+                                    @break
+                                @endswitch
+                            </option>
+                            <option value="M">Magang</option>
+                            <option value="K">Kerja</option>
+                            <option value="W">Wirausaha</option>
+                            <option value="T">Tidak bekerja</option>
+                        </select>
+                        <small class="mt-2 text-xs text-red-500">
+                            {{ $errors->first('career') }}</small>
                     </div>
                     <div class="flex-1">
                         <select name="status"
