@@ -185,6 +185,7 @@
                                     <input type="hidden" name="work" value="{{ $alumni->work }}">
                                     <input type="hidden" name="profession" value="{{ $alumni->profession }}">
                                     <input type="hidden" name="quote" value="{{ $alumni->quote }}">
+                                    <input type="hidden" name="career" value="{{ $alumni->career }}">
                                     <input type="hidden" name="year" value="{{ $alumni->year }}">
                                     <input type="hidden" name="testimoni"
                                         value="{{ $alumni->testimoni == 1 ? 0 : 1 }}">
