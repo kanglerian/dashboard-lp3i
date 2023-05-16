@@ -50,6 +50,7 @@ class ProgramAlumniController extends Controller
             'work' => 'required',
             'profession' => 'required',
             'quote' => 'required',
+            'career' => 'required',
             'year' => 'required',
         ]);
 
@@ -65,6 +66,7 @@ class ProgramAlumniController extends Controller
             'profession' => $request->input('profession'),
             'quote' => $request->input('quote'),
             'year' => $request->input('year'),
+            'career' => $request->input('career'),
             'testimoni' => 0,
             'status' => 1,
         ];
@@ -118,6 +120,7 @@ class ProgramAlumniController extends Controller
             'quote' => 'required',
             'year' => 'required',
             'testimoni' => 'required|boolean',
+            'career' => 'required',
             'status' => 'required|boolean',
         ]);
 
@@ -137,6 +140,7 @@ class ProgramAlumniController extends Controller
                 'quote' => $request->input('quote'),
                 'year' => $request->input('year'),
                 'testimoni' => $request->input('testimoni'),
+                'career' => $request->input('career'),
                 'status' => $request->input('status'),
             ];
         } else {
@@ -149,6 +153,7 @@ class ProgramAlumniController extends Controller
                 'quote' => $request->input('quote'),
                 'year' => $request->input('year'),
                 'testimoni' => $request->input('testimoni'),
+                'career' => $request->input('career'),
                 'status' => $request->input('status'),
             ];
         }

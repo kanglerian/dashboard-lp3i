@@ -12,7 +12,7 @@ class ProgramAlumni extends Model
 
     protected $table = 'programs_alumni';
 
-    protected $fillable = ['uuid', 'image', 'name', 'school', 'work', 'profession', 'quote', 'year', 'testimoni', 'status'];
+    protected $fillable = ['uuid', 'image', 'name', 'school', 'work', 'profession', 'quote', 'year', 'testimoni', 'career', 'status'];
 
     /**
      * The attributes that should be hidden for serialization.

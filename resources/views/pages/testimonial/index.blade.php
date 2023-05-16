@@ -71,14 +71,27 @@
                         required>
                         <option>Pilih Program Studi</option>
                         @foreach ($programs as $program)
-                          <option value="{{ $program->uuid }}">{{ $program->title }}</option>
+                            <option value="{{ $program->uuid }}">{{ $program->title }}</option>
                         @endforeach
                     </select>
                     <small class="mt-2 text-xs text-red-500">
                         {{ $errors->first('uuid') }}</small>
                 </div>
                 <div>
-                    <textarea type="text" name="quote" rows="5"
+                    <select name="career"
+                        class="w-full p-2 text-gray-700 border border-gray-300 @error('career') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                        required>
+                        <option>Pilih Karir</option>
+                        <option value="M">Magang</option>
+                        <option value="K">Kerja</option>
+                        <option value="W">Wirausaha</option>
+                        <option value="T">Tidak bekerja</option>
+                    </select>
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('career') }}</small>
+                </div>
+                <div>
+                    <textarea type="text" name="quote" rows="3"
                         class="w-full p-2 text-gray-700 border border-gray-300 @error('quote') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Tulis testimoni alumni disini.."></textarea>
                     <small class="mt-2 text-xs text-red-500">
@@ -142,6 +155,21 @@
                                 <hr class="my-1">
                                 <span>Bekerja: {{ $alumni->work }}</span>
                                 <span>Posisi: {{ $alumni->profession }}</span>
+                                <hr class="my-1">
+                                @switch($alumni->career)
+                                    @case('M')
+                                        <span class="bg-sky-500 px-3 py-1 rounded-md text-white">Magang</span>
+                                    @break
+                                    @case('K')
+                                        <span class="bg-teal-500 px-3 py-1 rounded-md text-white">Kerja</span>
+                                    @break
+                                    @case('W')
+                                        <span class="bg-amber-500 px-3 py-1 rounded-md text-white">Wirausaha</span>
+                                    @break
+                                    @case('T')
+                                        <span class="bg-red-500 px-3 py-1 rounded-md text-white">Tidak bekerja</span>
+                                    @break
+                                @endswitch
                             </th>
                             <td scope="row" class="px-6 py-4">
                                 {{ $alumni->quote }}
@@ -158,8 +186,9 @@
                                     <input type="hidden" name="profession" value="{{ $alumni->profession }}">
                                     <input type="hidden" name="quote" value="{{ $alumni->quote }}">
                                     <input type="hidden" name="year" value="{{ $alumni->year }}">
-                                    <input type="hidden" name="testimoni" value="{{ $alumni->testimoni == 1 ? 0 : 1 }}">
-                                    <input type="hidden" name="status" value="{{ $alumni->status}}">
+                                    <input type="hidden" name="testimoni"
+                                        value="{{ $alumni->testimoni == 1 ? 0 : 1 }}">
+                                    <input type="hidden" name="status" value="{{ $alumni->status }}">
                                     <button role="button" type="submit"
                                         class="w-full md:w-auto block md:inline-block text-center bg-amber-400 px-2 py-1 text-sm rounded text-white mb-2 {{ $alumni->testimoni == 1 ? 'bg-teal-500' : 'bg-red-500' }}">{!! $alumni->testimoni == 1
                                             ? '<i class="fa-solid fa-toggle-on fa-1x"></i>'
@@ -230,13 +259,13 @@
                                 </div>
                             </td>
                         </tr>
-                    @empty
-                        <tr class="bg-white border-b">
-                            <td colspan="6" class="text-center px-6 py-4">Data belum tersedia</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+                        @empty
+                            <tr class="bg-white border-b">
+                                <td colspan="6" class="text-center px-6 py-4">Data belum tersedia</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-@endsection
+    @endsection
