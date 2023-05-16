@@ -31,7 +31,7 @@
                 <select name="locate"
                     class="w-full p-2 text-gray-700 border border-gray-300 @error('locate') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                     required>
-                    <option>Pilih</option>
+                    <option>Pilih lokasi</option>
                     <option value="L">Landing Page</option>
                     <option value="C">Career Center</option>
                 </select>
