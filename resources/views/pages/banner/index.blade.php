@@ -28,6 +28,17 @@
                     <small class="mt-2 text-xs text-red-500">{{ $errors->first('image') }}</small>
             </div>
             <div class="flex-2">
+                <select name="locate"
+                    class="w-full p-2 text-gray-700 border border-gray-300 @error('locate') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                    required>
+                    <option>Pilih</option>
+                    <option value="L">Landing Page</option>
+                    <option value="C">Career Center</option>
+                </select>
+                <small class="mt-2 text-xs text-red-500">
+                    {{ $errors->first('locate') }}</small>
+            </div>
+            <div class="flex-2">
                 <select name="status"
                     class="w-full p-2 text-gray-700 border border-gray-300 @error('status') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                     required>
@@ -69,6 +80,9 @@
                         <th scope="col" class="md:w-3/12 px-6 py-3">
                             Judul
                         </th>
+                        <th scope="col" class="md:w-3/12 px-6 py-3">
+                            Lokasi
+                        </th>
                         <th scope="col" class="md:w-2/12 px-6 py-3">
                             Aksi
                         </th>
@@ -86,12 +100,23 @@
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900">
                                 {{ $banner->title }}
                             </th>
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900">
+                                @switch($banner->locate)
+                                    @case('L')
+                                        {{ 'Landing Page' }}
+                                        @break
+                                    @case('C')
+                                        {{ 'Career Center' }}
+                                        @break
+                                @endswitch
+                            </th>
                             <td colspan="2" class="space-y-2 px-6 py-4">
                                 <!-- Toggle -->
                                 <form action="{{ route('banner.update', $banner->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('PATCH')
                                     <input type="hidden" name="title" value="{{ $banner->title }}">
+                                    <input type="hidden" name="locate" value="{{ $banner->locate }}">
                                     <input type="hidden" name="status" value="{{ $banner->status == 1 ? 0 : 1 }}">
                                     <button role="button" type="submit"
                                         class="w-full md:w-auto block md:inline text-center text-white px-2 py-1 text-sm rounded {{ $banner->status == 1 ? 'bg-blue-500' : 'bg-red-500' }}">{!! $banner->status == 1

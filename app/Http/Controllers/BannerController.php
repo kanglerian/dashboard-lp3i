@@ -44,6 +44,7 @@ class BannerController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
+            'locate' => 'required',
             'status' => 'required|boolean',
         ]);
         $imageName = time() . '.' . $request->image->extension();
@@ -51,6 +52,7 @@ class BannerController extends Controller
         $data = [
             'title' => $request->input('title'),
             'image' => 'banners/' . $imageName,
+            'locate' => $request->input('locate'),
             'status' => $request->input('status'),
         ];
         Banner::create($data);
@@ -94,6 +96,7 @@ class BannerController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
+            'locate' => 'required',
             'status' => 'required|boolean',
         ]);
 
@@ -106,11 +109,13 @@ class BannerController extends Controller
             $data = [
                 'title' => $request->input('title'),
                 'image' => 'banners/' . $imageName,
+                'locate' => $request->input('locate'),
                 'status' => $request->input('status'),
             ];
         } else {
             $data = [
                 'title' => $request->input('title'),
+                'locate' => $request->input('locate'),
                 'status' => $request->input('status'),
             ];
         }
