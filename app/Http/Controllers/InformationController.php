@@ -47,6 +47,7 @@ class InformationController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'youtube' => $request->input('youtube'),
+            'locate' => $request->input('locate'),
             'status' => 0
         ];
         Information::create($data);
@@ -90,7 +91,8 @@ class InformationController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'youtube' => 'required'
+            'youtube' => 'required',
+            'locate' => 'required'
         ]);
 
         $company = Information::findOrFail($id);
@@ -98,7 +100,8 @@ class InformationController extends Controller
         $data = [
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'youtube' => $request->input('youtube')
+            'youtube' => $request->input('youtube'),
+            'locate' => $request->input('locate'),
         ];
 
         $company->update($data);
@@ -120,16 +123,24 @@ class InformationController extends Controller
         return redirect('information')->with('message', 'Data informasi berhasil dihapus!');
     }
 
-    public function status($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function status(Request $request, $id)
     {   
         $information = Information::findOrFail($id);
+        $locate = $request->input('locate');
         $data = [
             'status' => $information->status == 0 ? 1 : 0,
         ];
         $non = [
             'status' => 0,
         ];
-        Information::where('status', 1)->update($non);
+        Information::where('status', 1)->where('locate', $locate)->update($non);
         $information->update($data);
 
         return redirect('information')->with('message', 'Data informasi berhasil diubah!');

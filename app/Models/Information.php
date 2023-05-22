@@ -19,6 +19,7 @@ class Information extends Model
         'title',
         'description',
         'youtube',
+        'locate',
         'status',
     ];
 

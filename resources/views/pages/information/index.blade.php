@@ -6,7 +6,9 @@
             <a href="banner">
                 <h1 class="font-bold text-2xl">Informasi</h1>
             </a>
-            <p class="text-gray-500 text-sm">Fitur informasi adalah konten yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam informasi berupa video. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
+            <p class="text-gray-500 text-sm">Fitur informasi adalah konten yang dapat digunakan pada halaman depan untuk
+                menyampaikan berbagai macam informasi berupa video. Ini adalah cara yang berguna dan nyaman untuk
+                memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
             <span role="button" onclick="copyLinkAPI()"
                 class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i>
                 <span id="linkAPI">/api/informations</span></span>
@@ -29,10 +31,21 @@
                     <small class="mt-2 text-xs text-red-500">
                         {{ $errors->first('youtube') }}</small>
                 </div>
+                <div>
+                    <select name="locate"
+                        class="w-full p-2 text-gray-700 border border-gray-300 @error('locate') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                        required>
+                        <option>Pilih lokasi</option>
+                        <option value="L">Landing Page</option>
+                        <option value="C">Career Center</option>
+                    </select>
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('locate') }}</small>
+                </div>
             </div>
             <div class="flex-1 space-y-2">
                 <div>
-                    <textarea type="text" name="description" rows="4"
+                    <textarea type="text" name="description" rows="6"
                         class="w-full p-2 text-gray-700 border border-gray-300 @error('description') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Tulis deskripsi disini.."></textarea>
                     <small class="mt-2 text-xs text-red-500">
@@ -89,6 +102,14 @@
                             </td>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900">
                                 {{ $information->title }}<br>
+                                @switch($information->locate)
+                                    @case('L')
+                                        {{ 'Landing Page' }}
+                                        @break
+                                    @case('C')
+                                        {{ 'Career Center' }}
+                                        @break
+                                @endswitch
                                 <p class="text-gray-500 font-normal text-xs mt-2 text-justify">
                                     {{ substr($information->description, 0, 250) }}...</p>
                             </th>
@@ -98,6 +119,7 @@
                                     class="inline">
                                     @csrf
                                     @method('PATCH')
+                                    <input type="hidden" name="locate" value="{{ $information->locate }}">
                                     <button role="button" type="submit"
                                         class="w-full md:w-auto block md:inline text-center text-white px-2 py-1 text-sm rounded {{ $information->status == 1 ? 'bg-blue-500' : 'bg-red-500' }}">{!! $information->status == 1
                                             ? '<i class="fa-solid fa-toggle-on fa-1x"></i>'
