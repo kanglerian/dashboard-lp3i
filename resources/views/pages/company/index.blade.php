@@ -24,7 +24,7 @@
             <div class="flex-1">
                 <input type="file" name="image"
                     class="w-full text-gray-700 border border-gray-300 @error('image') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500">
-                    <small class="mt-2 text-xs text-slate-600"><span class="font-bold">Ketentuan:</span> Ukuran gambar dimensi 1:1 (1MB)</small>
+                    <small class="mt-2 text-xs text-slate-600"><span class="font-bold">Ketentuan:</span> Ukuran maksimal 1MB</small>
                     <small class="mt-2 text-xs text-red-500">{{ $errors->first('image') }}</small>
             </div>
             <div class="flex-2">
