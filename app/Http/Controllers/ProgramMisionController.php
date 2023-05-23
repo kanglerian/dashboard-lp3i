@@ -46,7 +46,7 @@ class ProgramMisionController extends Controller
             'status' => 1,
         ];
         ProgramMision::create($data);
-        return back()->with('misi', 'Data misi berhasil ditambahkan!');
+        return back()->with('message', 'Data misi berhasil ditambahkan!');
     }
 
     /**
@@ -83,7 +83,7 @@ class ProgramMisionController extends Controller
         $request->validate([
             'uuid' => 'required',
             'mision' => 'required',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $programMision = ProgramMision::findOrFail($id);
         $data = [
@@ -92,7 +92,7 @@ class ProgramMisionController extends Controller
             'status' => $request->input('status'),
         ];
         $programMision->update($data);
-        return back()->with('misi', 'Data misi berhasil diubah!');
+        return back()->with('message', 'Data misi berhasil diubah!');
     }
 
     /**
@@ -106,6 +106,6 @@ class ProgramMisionController extends Controller
         $programMision = ProgramMision::findOrFail($id);
         $programMision->delete();
 
-        return back()->with('misi', 'Data misi berhasil dihapus!');
+        return back()->with('message', 'Data misi berhasil dihapus!');
     }
 }

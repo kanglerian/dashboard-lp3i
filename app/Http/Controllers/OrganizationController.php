@@ -41,7 +41,7 @@ class OrganizationController extends Controller
         $request->validate([
             'title' => 'required',
             'drawio' => 'required',
-            'status' => 'required|boolean'
+            'status' => 'required|boolean|not_in:Pilih'
         ]);
         $data = [
             'title' => $request->input('title'),
@@ -49,7 +49,7 @@ class OrganizationController extends Controller
             'status' => $request->input('status')
         ];
         Organization::create($data);
-        return redirect('organization')->with('message', 'Data organisasi berhasil ditambahkan!');
+        return back()->with('message', 'Data organisasi berhasil ditambahkan!');
     }
 
     /**
@@ -89,7 +89,7 @@ class OrganizationController extends Controller
         $request->validate([
             'title' => 'required',
             'drawio' => 'required',
-            'status' => 'required|boolean'
+            'status' => 'required|boolean|not_in:Pilih'
         ]);
 
         $organization = Organization::findOrFail($id);
@@ -102,7 +102,7 @@ class OrganizationController extends Controller
 
         $organization->update($data);
 
-        return redirect('organization')->with('message', 'Data organisasi berhasil diubah!');
+        return back()->with('message', 'Data organisasi berhasil diubah!');
     }
 
     /**
@@ -116,7 +116,7 @@ class OrganizationController extends Controller
         $organization = Organization::findOrFail($id);
         $organization->delete();
 
-        return redirect('organization')->with('message', 'Data organisasi berhasil dihapus!');
+        return back()->with('message', 'Data organisasi berhasil dihapus!');
     }
 
     public function status($id)
@@ -131,6 +131,6 @@ class OrganizationController extends Controller
         Organization::where('status', 1)->update($non);
         $organization->update($data);
 
-        return redirect('organization')->with('message', 'Data organisasi berhasil diubah!');
+        return back()->with('message', 'Data organisasi berhasil diubah!');
     }
 }

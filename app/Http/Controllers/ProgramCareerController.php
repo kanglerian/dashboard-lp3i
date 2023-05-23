@@ -46,7 +46,7 @@ class ProgramCareerController extends Controller
             'status' => 1,
         ];
         ProgramCareer::create($data);
-        return back()->with('karir', 'Data karir berhasil ditambahkan!');
+        return back()->with('message', 'Data karir berhasil ditambahkan!');
     }
 
     /**
@@ -83,7 +83,7 @@ class ProgramCareerController extends Controller
         $request->validate([
             'uuid' => 'required',
             'career' => 'required',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $programCareer = ProgramCareer::findOrFail($id);
         $data = [
@@ -92,7 +92,7 @@ class ProgramCareerController extends Controller
             'status' => $request->input('status'),
         ];
         $programCareer->update($data);
-        return back()->with('karir', 'Data karir berhasil diubah!');
+        return back()->with('message', 'Data karir berhasil diubah!');
     }
 
     /**
@@ -106,6 +106,6 @@ class ProgramCareerController extends Controller
         $programCareer = ProgramCareer::findOrFail($id);
         $programCareer->delete();
 
-        return back()->with('karir', 'Data karir berhasil dihapus!');
+        return back()->with('message', 'Data karir berhasil dihapus!');
     }
 }

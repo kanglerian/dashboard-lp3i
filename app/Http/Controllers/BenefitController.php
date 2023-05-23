@@ -43,7 +43,7 @@ class BenefitController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=1/1',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('benefits'), $imageName);
@@ -54,7 +54,7 @@ class BenefitController extends Controller
             'status' => $request->input('status'),
         ];
         Benefit::create($data);
-        return redirect('benefit')->with('message', 'Data benefit berhasil ditambahkan!');
+        return back()->with('message', 'Data benefit berhasil ditambahkan!');
     }
 
     /**
@@ -95,7 +95,7 @@ class BenefitController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=1/1',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
 
         $benefit = Benefit::findOrFail($id);
@@ -120,7 +120,7 @@ class BenefitController extends Controller
 
         $benefit->update($data);
 
-        return redirect('benefit')->with('message', 'Data benefit berhasil diubah!');
+        return back()->with('message', 'Data benefit berhasil diubah!');
     }
 
     /**
@@ -135,6 +135,6 @@ class BenefitController extends Controller
         File::delete(public_path($benefit->image));
         $benefit->delete();
 
-        return redirect('benefit')->with('message', 'Data benefit berhasil dihapus!');
+        return back()->with('message', 'Data benefit berhasil dihapus!');
     }
 }

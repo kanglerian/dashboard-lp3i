@@ -9,7 +9,7 @@
             <p class="text-gray-500 text-sm">Fitur spanduk adalah gambar yang dapat digunakan pada halaman depan untuk
                 menyampaikan informasi atau iklan. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa
                 harus mengubah bagian lain dari halaman.</p>
-            <span role="button" onclick="copyLinkAPI()" class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i> <span id="linkAPI">/api/banners</span></span>
+            <span role="button" onclick="copyLinkAPI('/api/banners')" class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i> <span id="linkAPI">/api/banners</span></span>
         </div>
         <form action="{{ route('banner.store') }}"
             class="flex flex-col md:flex-row md:items-start gap-4 py-3" method="POST" enctype="multipart/form-data">

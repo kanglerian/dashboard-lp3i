@@ -43,15 +43,15 @@ class ProgramAlumniController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'uuid' => 'required',
+            'uuid' => 'required|not_in:Pilih Program Studi',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=1/1',
             'name' => 'required',
             'school' => 'required',
             'work' => 'required',
             'profession' => 'required',
             'quote' => 'required',
-            'career' => 'required',
-            'year' => 'required',
+            'career' => 'required|not_in:Pilih Karir',
+            'year' => 'required|digits:4|date_format:Y',
         ]);
 
         $imageName = time() . '.' . $request->image->extension();
@@ -71,7 +71,7 @@ class ProgramAlumniController extends Controller
             'status' => 1,
         ];
         ProgramAlumni::create($data);
-        return back()->with('alumni', 'Data alumni berhasil ditambahkan!');
+        return back()->with('message', 'Data alumni berhasil ditambahkan!');
     }
 
     /**
@@ -160,7 +160,7 @@ class ProgramAlumniController extends Controller
 
         
         $ProgramAlumni->update($data);
-        return back()->with('alumni', 'Data alumni berhasil diubah!');
+        return back()->with('message', 'Data alumni berhasil diubah!');
     }
 
     /**
@@ -175,6 +175,6 @@ class ProgramAlumniController extends Controller
         File::delete(public_path($ProgramAlumni->image));
         $ProgramAlumni->delete();
 
-        return back()->with('alumni', 'Data alumni berhasil dihapus!');
+        return back()->with('message', 'Data alumni berhasil dihapus!');
     }
 }

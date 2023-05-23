@@ -7,7 +7,7 @@
                 <h1 class="font-bold text-2xl">Perusahaan Relasi</h1>
             </a>
             <p class="text-gray-500 text-sm">Fitur perusahaan relasi adalah konten yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam perusahaan yang sudah bekerjasama dengan LP3I. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
-            <span role="button" onclick="copyLinkAPI()"
+            <span role="button" onclick="copyLinkAPI('/api/companies')"
                 class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i>
                 <span id="linkAPI">/api/companies</span></span>
         </div>

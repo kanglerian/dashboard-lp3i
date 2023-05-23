@@ -41,6 +41,7 @@ class InformationController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'locate' => 'required|not_in:Pilih lokasi',
             'youtube' => 'required'
         ]);
         $data = [
@@ -51,7 +52,7 @@ class InformationController extends Controller
             'status' => 0
         ];
         Information::create($data);
-        return redirect('information')->with('message', 'Data informasi berhasil ditambahkan!');
+        return back()->with('message', 'Data informasi berhasil ditambahkan!');
     }
 
     /**
@@ -92,7 +93,7 @@ class InformationController extends Controller
             'title' => 'required',
             'description' => 'required',
             'youtube' => 'required',
-            'locate' => 'required'
+            'locate' => 'required|not_in:Pilih lokasi',
         ]);
 
         $company = Information::findOrFail($id);
@@ -106,7 +107,7 @@ class InformationController extends Controller
 
         $company->update($data);
 
-        return redirect('information')->with('message', 'Data informasi berhasil diubah!');
+        return back()->with('message', 'Data informasi berhasil diubah!');
     }
 
     /**
@@ -120,7 +121,7 @@ class InformationController extends Controller
         $information = Information::findOrFail($id);
         $information->delete();
 
-        return redirect('information')->with('message', 'Data informasi berhasil dihapus!');
+        return back()->with('message', 'Data informasi berhasil dihapus!');
     }
 
     /**
@@ -143,6 +144,6 @@ class InformationController extends Controller
         Information::where('status', 1)->where('locate', $locate)->update($non);
         $information->update($data);
 
-        return redirect('information')->with('message', 'Data informasi berhasil diubah!');
+        return back()->with('message', 'Data informasi berhasil diubah!');
     }
 }

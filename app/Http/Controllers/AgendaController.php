@@ -43,7 +43,7 @@ class AgendaController extends Controller
             'title' => 'required',
             'date' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=4/5',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('agendas'), $imageName);
@@ -54,7 +54,7 @@ class AgendaController extends Controller
             'status' => $request->input('status'),
         ];
         Agenda::create($data);
-        return redirect('agenda')->with('message', 'Data agenda berhasil ditambahkan!');
+        return back()->with('message', 'Data agenda berhasil ditambahkan!');
     }
 
     /**
@@ -95,7 +95,7 @@ class AgendaController extends Controller
             'title' => 'required',
             'date' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
 
         $agenda = Agenda::findOrFail($id);
@@ -120,7 +120,7 @@ class AgendaController extends Controller
 
         $agenda->update($data);
 
-        return redirect('agenda')->with('message', 'Data agenda berhasil diubah!');
+        return back()->with('message', 'Data agenda berhasil diubah!');
     }
 
     /**
@@ -135,6 +135,6 @@ class AgendaController extends Controller
         File::delete(public_path($agenda->image));
         $agenda->delete();
 
-        return redirect('agenda')->with('message', 'Data agenda berhasil dihapus!');
+        return back()->with('message', 'Data agenda berhasil dihapus!');
     }
 }

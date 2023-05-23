@@ -46,7 +46,7 @@ class ProgramCompetenceController extends Controller
             'status' => 1,
         ];
         ProgramCompetence::create($data);
-        return back()->with('kompetensi', 'Data kompetensi berhasil ditambahkan!');
+        return back()->with('message', 'Data kompetensi berhasil ditambahkan!');
     }
 
     /**
@@ -83,7 +83,7 @@ class ProgramCompetenceController extends Controller
         $request->validate([
             'uuid' => 'required',
             'competence' => 'required',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $programCompetence = ProgramCompetence::findOrFail($id);
         $data = [
@@ -92,7 +92,7 @@ class ProgramCompetenceController extends Controller
             'status' => $request->input('status'),
         ];
         $programCompetence->update($data);
-        return back()->with('kompetensi', 'Data kompetensi berhasil diubah!');
+        return back()->with('message', 'Data kompetensi berhasil diubah!');
     }
 
     /**
@@ -106,6 +106,6 @@ class ProgramCompetenceController extends Controller
         $programCompetence = ProgramCompetence::findOrFail($id);
         $programCompetence->delete();
 
-        return back()->with('kompetensi', 'Data kompetensi berhasil dihapus!');
+        return back()->with('message', 'Data kompetensi berhasil dihapus!');
     }
 }

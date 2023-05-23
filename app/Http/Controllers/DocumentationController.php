@@ -42,7 +42,7 @@ class DocumentationController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('documentations'), $imageName);
@@ -52,7 +52,7 @@ class DocumentationController extends Controller
             'status' => $request->input('status'),
         ];
         Documentation::create($data);
-        return redirect('documentation')->with('message', 'Data dokumentasi berhasil ditambahkan!');
+        return back()->with('message', 'Data dokumentasi berhasil ditambahkan!');
     }
 
     /**
@@ -92,7 +92,7 @@ class DocumentationController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
 
         $documentation = Documentation::findOrFail($id);
@@ -115,7 +115,7 @@ class DocumentationController extends Controller
 
         $documentation->update($data);
 
-        return redirect('documentation')->with('message', 'Data dokumentasi berhasil diubah!');
+        return back()->with('message', 'Data dokumentasi berhasil diubah!');
     }
 
     /**
@@ -130,6 +130,6 @@ class DocumentationController extends Controller
         File::delete(public_path($documentation->image));
         $documentation->delete();
 
-        return redirect('documentation')->with('message', 'Data dokumentasi berhasil dihapus!');
+        return back()->with('message', 'Data dokumentasi berhasil dihapus!');
     }
 }

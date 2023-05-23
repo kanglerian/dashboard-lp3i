@@ -48,8 +48,8 @@ class ProgramController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'campus' => 'required',
-            'level' => 'required',
+            'campus' => 'required|not_in:Pilih kampus',
+            'level' => 'required|not_in:Pilih jenjang',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9'
         ]);
         $imageName = time() . '.' . $request->image->extension();
@@ -63,7 +63,7 @@ class ProgramController extends Controller
             'status' => 0,
         ];
         Program::create($data);
-        return redirect('program')->with('message', 'Data program studi berhasil ditambahkan!');
+        return back()->with('message', 'Data program studi berhasil ditambahkan!');
     }
 
     /**
@@ -117,8 +117,8 @@ class ProgramController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'campus' => 'required',
-            'level' => 'required',
+            'campus' => 'required|not_in:Pilih kampus',
+            'level' => 'required|not_in:Pilih jenjang',
             'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
             'status' => 'required|boolean',
         ]);
@@ -147,7 +147,7 @@ class ProgramController extends Controller
 
         $program->update($data);
 
-        return redirect('program')->with('message', 'Data program studi berhasil diubah!');
+        return back()->with('message', 'Data program studi berhasil diubah!');
     }
 
     /**
@@ -162,6 +162,6 @@ class ProgramController extends Controller
         File::delete(public_path($program->image));
         $program->delete();
 
-        return redirect('program')->with('message', 'Data program studi berhasil dihapus!');
+        return back()->with('message', 'Data program studi berhasil dihapus!');
     }
 }

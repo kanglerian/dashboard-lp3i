@@ -46,7 +46,7 @@ class ProgramBenefitController extends Controller
             'status' => 1,
         ];
         ProgramBenefit::create($data);
-        return back()->with('keunggulan', 'Data keunggulan berhasil ditambahkan!');
+        return back()->with('message', 'Data keunggulan berhasil ditambahkan!');
     }
 
     /**
@@ -83,7 +83,7 @@ class ProgramBenefitController extends Controller
         $request->validate([
             'uuid' => 'required',
             'benefit' => 'required',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $programBenefit = ProgramBenefit::findOrFail($id);
         $data = [
@@ -92,7 +92,7 @@ class ProgramBenefitController extends Controller
             'status' => $request->input('status'),
         ];
         $programBenefit->update($data);
-        return back()->with('keunggulan', 'Data keunggulan berhasil diubah!');
+        return back()->with('message', 'Data keunggulan berhasil diubah!');
     }
 
     /**
@@ -106,6 +106,6 @@ class ProgramBenefitController extends Controller
         $programBenefit = ProgramBenefit::findOrFail($id);
         $programBenefit->delete();
 
-        return back()->with('keunggulan', 'Data keunggulan berhasil dihapus!');
+        return back()->with('message', 'Data keunggulan berhasil dihapus!');
     }
 }

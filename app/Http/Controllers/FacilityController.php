@@ -42,7 +42,7 @@ class FacilityController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('facilities'), $imageName);
@@ -52,7 +52,7 @@ class FacilityController extends Controller
             'status' => $request->input('status'),
         ];
         Facility::create($data);
-        return redirect('facility')->with('message', 'Data fasilitas berhasil ditambahkan!');
+        return back()->with('message', 'Data fasilitas berhasil ditambahkan!');
     }
 
     /**
@@ -92,7 +92,7 @@ class FacilityController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
 
         $facility = Facility::findOrFail($id);
@@ -115,7 +115,7 @@ class FacilityController extends Controller
 
         $facility->update($data);
 
-        return redirect('facility')->with('message', 'Data fasilitas berhasil diubah!');
+        return back()->with('message', 'Data fasilitas berhasil diubah!');
     }
 
     /**
@@ -130,6 +130,6 @@ class FacilityController extends Controller
         File::delete(public_path($facility->image));
         $facility->delete();
 
-        return redirect('facility')->with('message', 'Data fasilitas berhasil dihapus!');
+        return back()->with('message', 'Data fasilitas berhasil dihapus!');
     }
 }

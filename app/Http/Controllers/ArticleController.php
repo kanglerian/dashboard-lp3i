@@ -59,7 +59,7 @@ class ArticleController extends Controller
             'status' => 1,
         ];
         Article::create($data);
-        return redirect('article')->with('message', 'Data artikel berhasil ditambahkan!');
+        return back()->with('message', 'Data artikel berhasil ditambahkan!');
     }
 
     /**
@@ -135,7 +135,7 @@ class ArticleController extends Controller
 
         $article->update($data);
 
-        return redirect('article')->with('message', 'Data artikel berhasil diubah!');
+        return back()->with('message', 'Data artikel berhasil diubah!');
     }
 
     /**
@@ -150,6 +150,6 @@ class ArticleController extends Controller
         File::delete(public_path($article->image));
         $article->delete();
 
-        return redirect('article')->with('message', 'Data artikel berhasil dihapus!');
+        return back()->with('message', 'Data artikel berhasil dihapus!');
     }
 }

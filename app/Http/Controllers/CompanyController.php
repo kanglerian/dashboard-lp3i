@@ -42,7 +42,7 @@ class CompanyController extends Controller
         $request->validate([
             'name' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('companies'), $imageName);
@@ -52,7 +52,7 @@ class CompanyController extends Controller
             'status' => $request->input('status'),
         ];
         Company::create($data);
-        return redirect('company')->with('message', 'Data perusahaan berhasil ditambahkan!');
+        return back()->with('message', 'Data perusahaan berhasil ditambahkan!');
     }
 
     /**
@@ -92,7 +92,7 @@ class CompanyController extends Controller
         $request->validate([
             'name' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:1024',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
 
         $company = Company::findOrFail($id);
@@ -115,7 +115,7 @@ class CompanyController extends Controller
 
         $company->update($data);
 
-        return redirect('company')->with('message', 'Data benefit berhasil diubah!');
+        return back()->with('message', 'Data benefit berhasil diubah!');
     }
 
     /**
@@ -130,6 +130,6 @@ class CompanyController extends Controller
         File::delete(public_path($company->image));
         $company->delete();
 
-        return redirect('company')->with('message', 'Data perusahaan berhasil dihapus!');
+        return back()->with('message', 'Data perusahaan berhasil dihapus!');
     }
 }

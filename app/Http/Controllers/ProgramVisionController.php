@@ -46,7 +46,7 @@ class ProgramVisionController extends Controller
             'status' => 1,
         ];
         ProgramVision::create($data);
-        return back()->with('visi', 'Data visi berhasil ditambahkan!');
+        return back()->with('message', 'Data visi berhasil ditambahkan!');
     }
 
     /**
@@ -82,7 +82,7 @@ class ProgramVisionController extends Controller
         $request->validate([
             'uuid' => 'required',
             'vision' => 'required',
-            'status' => 'required|boolean',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $programVision = ProgramVision::findOrFail($id);
         $data = [
@@ -91,7 +91,7 @@ class ProgramVisionController extends Controller
             'status' => $request->input('status'),
         ];
         $programVision->update($data);
-        return back()->with('visi', 'Data visi berhasil diubah!');
+        return back()->with('message', 'Data visi berhasil diubah!');
     }
 
     /**
@@ -105,6 +105,6 @@ class ProgramVisionController extends Controller
         $programVision = ProgramVision::findOrFail($id);
         $programVision->delete();
 
-        return back()->with('visi', 'Data visi berhasil dihapus!');
+        return back()->with('message', 'Data visi berhasil dihapus!');
     }
 }

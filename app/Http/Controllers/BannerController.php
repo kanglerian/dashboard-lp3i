@@ -44,8 +44,8 @@ class BannerController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
-            'locate' => 'required',
-            'status' => 'required|boolean',
+            'locate' => 'required|not_in:Pilih lokasi',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('banners'), $imageName);
@@ -56,7 +56,7 @@ class BannerController extends Controller
             'status' => $request->input('status'),
         ];
         Banner::create($data);
-        return redirect('banner')->with('message', 'Data Banner berhasil ditambahkan!');
+        return back()->with('message', 'Data Banner berhasil ditambahkan!');
     }
 
     /**
@@ -96,8 +96,8 @@ class BannerController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
-            'locate' => 'required',
-            'status' => 'required|boolean',
+            'locate' => 'required|not_in:Pilih lokasi',
+            'status' => 'required|boolean|not_in:Pilih',
         ]);
 
         $banner = Banner::findOrFail($id);
@@ -122,7 +122,7 @@ class BannerController extends Controller
 
         $banner->update($data);
 
-        return redirect('banner')->with('message', 'Data Banner berhasil diubah!');
+        return back()->with('message', 'Data Banner berhasil diubah!');
     }
 
     /**
@@ -137,6 +137,6 @@ class BannerController extends Controller
         File::delete(public_path($banner->image));
         $banner->delete();
 
-        return redirect('banner')->with('message', 'Data Banner berhasil dihapus!');
+        return back()->with('message', 'Data Banner berhasil dihapus!');
     }
 }

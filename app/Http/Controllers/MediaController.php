@@ -57,7 +57,7 @@ class MediaController extends Controller
             'status' => 1,
         ];
         Media::create($data);
-        return redirect('media')->with('message', 'Data media berhasil ditambahkan!');
+        return back()->with('message', 'Data media berhasil ditambahkan!');
     }
 
     /**
@@ -130,7 +130,7 @@ class MediaController extends Controller
 
         $media->update($data);
 
-        return redirect('media')->with('message', 'Data media berhasil diubah!');
+        return back()->with('message', 'Data media berhasil diubah!');
     }
 
     /**
@@ -145,6 +145,6 @@ class MediaController extends Controller
         File::delete(public_path($media->image));
         $media->delete();
 
-        return redirect('media')->with('message', 'Data media berhasil dihapus!');
+        return back()->with('message', 'Data media berhasil dihapus!');
     }
 }

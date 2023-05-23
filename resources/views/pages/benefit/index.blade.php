@@ -7,7 +7,7 @@
                 <h1 class="font-bold text-2xl">Keuntungan</h1>
             </a>
             <p class="text-gray-500 text-sm">Fitur keuntungan adalah gambar yang dapat digunakan pada halaman depan untuk menyampaikan berbagai macam keuntungan jika kuliah di LP3I. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
-            <span role="button" onclick="copyLinkAPI()"
+            <span role="button" onclick="copyLinkAPI('/api/benefits')"
                 class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i>
                 <span id="linkAPI">/api/benefits</span></span>
         </div>
