@@ -41,7 +41,7 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=1/1',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
             'status' => 'required|boolean',
         ]);
         $imageName = time() . '.' . $request->image->extension();
@@ -91,7 +91,7 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=1/1',
+            'image' => 'image|mimes:png,jpg,jpeg|max:1024',
             'status' => 'required|boolean',
         ]);
 
