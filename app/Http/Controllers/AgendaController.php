@@ -15,7 +15,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        $agendas = Agenda::all();
+        $agendas = Agenda::orderBy('date','desc')->get();
         return view('pages.agenda.index')->with([
             'agendas' => $agendas,
         ]);

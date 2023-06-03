@@ -8,8 +8,8 @@ use App\Models\Media;
 class MediaAPIController extends Controller
 {
     public function index()
-    {
-        $medias = Media::all();
+    {   
+        $medias = Media::orderBy('date','desc')->get();
         return response()->json($medias);
     }
 }

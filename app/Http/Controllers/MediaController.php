@@ -15,7 +15,7 @@ class MediaController extends Controller
      */
     public function index()
     {
-        $medias = Media::all();
+        $medias = Media::orderBy('date','desc')->get();
         return view('pages.media.index')->with([
             'medias' => $medias,
         ]);
@@ -57,7 +57,7 @@ class MediaController extends Controller
             'status' => 1,
         ];
         Media::create($data);
-        return back()->with('message', 'Data media berhasil ditambahkan!');
+        return redirect('media')->with('message', 'Data media berhasil ditambahkan!');
     }
 
     /**

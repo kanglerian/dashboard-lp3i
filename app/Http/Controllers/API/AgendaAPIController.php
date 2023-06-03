@@ -9,7 +9,7 @@ class AgendaAPIController extends Controller
 {
     public function index()
     {
-        $agendas = Agenda::all();
+        $agendas = Agenda::orderBy('date','desc')->get();
         return response()->json($agendas);
     }
 }
