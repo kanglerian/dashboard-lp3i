@@ -45,6 +45,7 @@ Route::get('/documentations', [DocumentationAPIController::class, 'index']);
 Route::get('/facilities', [FacilityAPIController::class, 'index']);
 Route::get('/agendas', [AgendaAPIController::class, 'index']);
 Route::get('/medias', [MediaAPIController::class, 'index']);
+Route::get('/medias/{uuid}', [MediaAPIController::class, 'show']);
 Route::get('/articles', [ArticleAPIController::class, 'index']);
 Route::get('/ormawas', [OrmawaAPIController::class, 'index']);
 Route::get('/ormawas/{uuid}', [OrmawaAPIController::class, 'show']);

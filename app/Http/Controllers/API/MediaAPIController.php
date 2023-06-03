@@ -12,4 +12,10 @@ class MediaAPIController extends Controller
         $medias = Media::orderBy('date','desc')->get();
         return response()->json($medias);
     }
+
+    public function show($uuid)
+    {
+        $media = Media::where('uuid', $uuid)->first();
+        return response()->json($media);
+    }
 }
