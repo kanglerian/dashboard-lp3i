@@ -20,6 +20,7 @@ use App\Http\Controllers\ProgramCompetenceController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramMisionController;
 use App\Http\Controllers\ProgramVisionController;
+use App\Http\Controllers\FlyerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,8 +62,10 @@ Route::resource('programbenefit', ProgramBenefitController::class)->middleware('
 Route::resource('programcareer', ProgramCareerController::class)->middleware('auth');
 Route::resource('programcompetence', ProgramCompetenceController::class)->middleware('auth');
 Route::resource('programalumni', ProgramAlumniController::class)->middleware('auth');
-
+Route::resource('flyer', FlyerController::class)->middleware('auth');
 
 Route::patch('information/change/{id}', [InformationController::class, 'status'])->name('information.change')->middleware('auth');
+
+Route::patch('flyer/change/{id}', [FlyerController::class, 'status'])->name('flyer.change')->middleware('auth');
 
 Route::patch('organization/change/{id}', [OrganizationController::class, 'status'])->name('organization.change')->middleware('auth');

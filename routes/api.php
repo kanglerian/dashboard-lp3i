@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\AgendaAPIController;
 use App\Http\Controllers\API\ArticleAPIController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\API\FlyerAPIController;
 use App\Http\Controllers\API\BannerAPIController;
 use App\Http\Controllers\API\BenefitAPIController;
 use App\Http\Controllers\API\CompanyAPIController;
@@ -36,6 +37,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/flyers', [FlyerAPIController::class, 'index']);
 Route::get('/banners', [BannerAPIController::class, 'index']);
 Route::get('/benefits', [BenefitAPIController::class, 'index']);
 Route::get('/companies', [CompanyAPIController::class, 'index']);
