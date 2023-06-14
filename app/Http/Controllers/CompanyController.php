@@ -49,6 +49,7 @@ class CompanyController extends Controller
         $data = [
             'name' => $request->input('name'),
             'image' => 'companies/' . $imageName,
+            'link' => $request->input('link'),
             'status' => $request->input('status'),
         ];
         Company::create($data);
@@ -103,12 +104,14 @@ class CompanyController extends Controller
             $request->image->move(public_path('companies'), $imageName);
             $data = [
                 'name' => $request->input('name'),
-                'image' => 'benefits/' . $imageName,
+                'image' => 'companies/' . $imageName,
+                'link' => $request->input('link'),
                 'status' => $request->input('status'),
             ];
         } else {
             $data = [
                 'name' => $request->input('name'),
+                'link' => $request->input('link'),
                 'status' => $request->input('status'),
             ];
         }

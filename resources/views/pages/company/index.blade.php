@@ -22,6 +22,13 @@
                     {{ $errors->first('name') }}</small>
             </div>
             <div class="flex-1">
+                <input type="text" name="link"
+                    class="w-full p-2 text-gray-700 border border-gray-300 @error('link') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Tulis link disini..">
+                <small class="mt-2 text-xs text-red-500">
+                    {{ $errors->first('link') }}</small>
+            </div>
+            <div class="flex-1">
                 <input type="file" name="image"
                     class="w-full text-gray-700 border border-gray-300 @error('image') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500">
                     <small class="mt-2 text-xs text-slate-600"><span class="font-bold">Ketentuan:</span> Ukuran maksimal 1MB</small>
@@ -81,7 +88,7 @@
                                 {{ $number + 1 }}
                             </td>
                             <th scope="row" class="px-6 py-4">
-                                <img src="{{ asset($company->image) }}" class="w-32 rounded">
+                                <a href="{{ $company->link ? $company->link : '#' }}" target="_blank"><img src="{{ asset($company->image) }}" class="w-32 rounded"></a>
                             </th>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900">
                                 {{ $company->name }}
