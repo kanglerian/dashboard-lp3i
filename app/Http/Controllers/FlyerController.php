@@ -153,7 +153,7 @@ class FlyerController extends Controller
         $non = [
             'status' => 0,
         ];
-        Flyer::where('status', 1)->update($non);
+        Flyer::where(['location' => $flyer->location, 'status' => 1])->update($non);
         $flyer->update($data);
 
         return back()->with('message', 'Data flyer berhasil diubah!');
