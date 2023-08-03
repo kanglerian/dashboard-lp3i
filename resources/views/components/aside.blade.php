@@ -1,5 +1,5 @@
 <aside id="aside" class="flex-2 z-[1] md:m-0 rounded-lg md:static md:block text-sm hidden">
-    <ul class="w-full text-sm font-medium space-y-2 text-gray-700 border p-3 border-gray-300 rounded-lg mb-4">
+    <ul class="w-full text-sm font-medium space-y-2 text-gray-700 border p-3 border-gray-200 rounded-lg mb-4">
         <li
             class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
             <a href="{{ route('flyer.index') }}"><i class="fa-solid fa-image mr-1"></i> Flyer</a>

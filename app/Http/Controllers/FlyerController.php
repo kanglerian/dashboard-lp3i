@@ -44,12 +44,14 @@ class FlyerController extends Controller
             'headline' => 'required|string',
             'paragraph' => 'required|string',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'location' => 'required|string|not_in:Pilih Lokasi',
         ]);
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('flyers'), $imageName);
         $data = [
             'headline' => $request->input('headline'),
             'paragraph' => $request->input('paragraph'),
+            'location' => $request->input('location'),
             'image' => 'flyers/' . $imageName,
             'status' => 0,
         ];
@@ -95,6 +97,7 @@ class FlyerController extends Controller
             'headline' => 'required|string',
             'paragraph' => 'required|string',
             'image' => 'image|mimes:png,jpg,jpeg|max:1024',
+            'location' => 'required|string|not_in:Pilih Lokasi',
             'status' => 'boolean|not_in:Pilih',
         ]);
 
@@ -107,6 +110,7 @@ class FlyerController extends Controller
             $data = [
                 'headline' => $request->input('headline'),
                 'paragraph' => $request->input('paragraph'),
+                'location' => $request->input('location'),
                 'image' => 'flyers/' . $imageName,
                 'status' => $request->input('status'),
             ];
@@ -114,6 +118,7 @@ class FlyerController extends Controller
             $data = [
                 'headline' => $request->input('headline'),
                 'paragraph' => $request->input('paragraph'),
+                'location' => $request->input('location'),
                 'status' => $request->input('status'),
             ];
         }

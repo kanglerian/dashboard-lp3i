@@ -32,7 +32,18 @@
                         {{ $errors->first('paragraph') }}</small>
                 </div>
             </div>
-            <div class="flex-1">
+            <div class="flex-1 space-y-1">
+                <div>
+                    <select name="location"
+                        class="w-full p-2 text-gray-700 border border-gray-300 @error('status') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                        required>
+                        <option>Pilih Lokasi</option>
+                        <option value="R">Kelas Reguler</option>
+                        <option value="K">Kelas Karyawan</option>
+                    </select>
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('location') }}</small>
+                </div>
                 <input type="file" name="image"
                     class="w-full text-gray-700 border border-gray-300 @error('image') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500">
                 <small class="mt-2 text-xs text-slate-600"><span class="font-bold">Ketentuan:</span> Ukuran gambar dimensi
@@ -86,7 +97,18 @@
                             </th>
                             <th scope="row" class="px-6 py-4 text-gray-800 space-y-1">
                                 <h2 class="font-bold">{{ $flyer->headline }}</h2>
-                                <p class="text-xs font-light">{{ $flyer->paragraph }}</p>
+                                <p class="text-xs font-light">
+                                    {{ $flyer->paragraph }}
+                                    <br>
+                                    @switch($flyer->location)
+                                        @case('R')
+                                            Kelas Reguler
+                                            @break
+                                        @case('K')
+                                            Kelas Karyawan
+                                            @break
+                                    @endswitch
+                                </p>
                             </th>
                             <td colspan="2" class="space-y-2 px-6 py-4">
                                 <form action="{{ route('flyer.change', $flyer->id) }}" method="POST"

@@ -18,6 +18,7 @@ class Flyer extends Model
         'headline',
         'paragraph',
         'image',
+        'location',
         'status',
     ];
 

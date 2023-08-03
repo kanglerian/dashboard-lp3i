@@ -30,6 +30,26 @@
                             {{ $errors->first('paragraph') }}</small>
                     </div>
                     <div class="flex-1">
+                        <select name="location"
+                            class="w-full p-2 text-gray-700 border border-gray-300 @error('location') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                            required>
+                            <option value="{{ $flyer->location }}">
+                                @switch($flyer->location)
+                                    @case('R')
+                                        Kelas Reguler
+                                        @break
+                                    @case('K')
+                                        Kelas Karyawan
+                                        @break
+                                @endswitch
+                            </option>
+                            <option value="R">Kelas Reguler</option>
+                            <option value="K">Kelas Karyawan</option>
+                        </select>
+                        <small class="mt-2 text-xs text-red-500">
+                            {{ $errors->first('location') }}</small>
+                    </div>
+                    <div class="flex-1">
                         <input type="file" name="image"
                             class="w-full text-gray-700 border border-gray-300 @error('image') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500">
                         <small class="mt-2 text-xs text-red-500">
