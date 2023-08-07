@@ -201,7 +201,7 @@
                                     class="inline">
                                     @csrf
                                     @method('PATCH')
-                                    <input type="hidden" name="uuid" value="{{ $alumni->uuid }}">
+                                   <input type="hidden" name="uuid" value="{{ $alumni->uuid }}">
                                     <input type="hidden" name="name" value="{{ $alumni->name }}">
                                     <input type="hidden" name="school" value="{{ $alumni->school }}">
                                     <input type="hidden" name="work" value="{{ $alumni->work }}">
@@ -209,6 +209,7 @@
                                     <input type="hidden" name="quote" value="{{ $alumni->quote }}">
                                     <input type="hidden" name="career" value="{{ $alumni->career }}">
                                     <input type="hidden" name="year" value="{{ $alumni->year }}">
+                                    <input type="hidden" name="testimoni" value="{{ $alumni->testimoni }}">
                                     <input type="hidden" name="status" value="{{ $alumni->status == 1 ? 0 : 1 }}">
                                     <button role="button" type="submit"
                                         class="w-full md:w-auto block md:inline text-center text-white px-2 py-1 text-sm rounded {{ $alumni->status == 1 ? 'bg-blue-500' : 'bg-red-500' }}">{!! $alumni->status == 1
