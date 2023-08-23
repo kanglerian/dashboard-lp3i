@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AgendaAPIController;
 use App\Http\Controllers\API\ArticleAPIController;
+use App\Http\Controllers\API\PanduanUPPMAPIController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\FlyerAPIController;
 use App\Http\Controllers\API\BannerAPIController;
@@ -65,3 +66,4 @@ Route::get('/programcompetences', [ProgramCompetenceAPIController::class, 'index
 Route::get('/programcompetences/{uuid}', [ProgramCompetenceAPIController::class, 'show']);
 Route::get('/programalumnis', [ProgramAlumniAPIController::class, 'index']);
 Route::get('/programalumnis/{uuid}', [ProgramAlumniAPIController::class, 'show']);
+Route::get('/panduanuppm', [PanduanUPPMAPIController::class, 'index']);

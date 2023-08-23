@@ -21,6 +21,10 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramMisionController;
 use App\Http\Controllers\ProgramVisionController;
 use App\Http\Controllers\FlyerController;
+// UPPM
+use App\Http\Controllers\PanduanUPPMController; 
+use App\Http\Controllers\DataUPPMController;
+use App\Http\Controllers\LuaranUPPMController; 
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +67,11 @@ Route::resource('programcareer', ProgramCareerController::class)->middleware('au
 Route::resource('programcompetence', ProgramCompetenceController::class)->middleware('auth');
 Route::resource('programalumni', ProgramAlumniController::class)->middleware('auth');
 Route::resource('flyer', FlyerController::class)->middleware('auth');
+
+// UPPM
+Route::resource('panduanuppm', PanduanUPPMController::class)->middleware('auth');
+Route::resource('datauppm', DataUPPMController::class)->middleware('auth');
+Route::resource('luaranuppm', LuaranUPPMController::class)->middleware('auth');
 
 Route::patch('information/change/{id}', [InformationController::class, 'status'])->name('information.change')->middleware('auth');
 
