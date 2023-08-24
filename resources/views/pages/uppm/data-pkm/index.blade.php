@@ -4,7 +4,7 @@
     <div class="flex-1 overflow-x-auto px-2">
         <div class="space-y-2 mb-2">
             <a href="banner">
-                <h1 class="font-bold text-2xl">Data Penelitian</h1>
+                <h1 class="font-bold text-2xl">Data PKM</h1>
             </a>
             <p class="text-gray-500 text-sm">Fitur spanduk adalah gambar yang dapat digunakan pada halaman depan untuk
                 menyampaikan informasi atau iklan. Ini adalah cara yang berguna dan nyaman untuk memperbarui konten tanpa
