@@ -10,7 +10,7 @@ class DataPkmUPPMAPIController extends Controller
 {
     public function index()
     {
-        $data = DataUPPM::orderBy('year','desc')->get();
+        $data = DataUPPM::orderBy('year','desc')->where('type','PKM')->get();
         return response()->json($data);
     }
 }
