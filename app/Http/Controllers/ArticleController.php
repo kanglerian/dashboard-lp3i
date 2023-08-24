@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::orderBy('date','desc')->get();
         return view('pages.article.index')->with([
             'articles' => $articles,
         ]);
@@ -40,9 +40,13 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'narasumber' => 'required',
             'title' => 'required',
+            'kolom' => 'required|not_in:0',
+            'media' => 'required',
+            'kegiatan' => 'required',
             'date' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
             'description' => 'required',
             'source' => 'required',
         ]);
@@ -51,7 +55,11 @@ class ArticleController extends Controller
         $special_character = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '"', ':', ';', '?', '>', '.', '<', ',', "'", '{', '}', '[', ']', '/'];
         $data = [
             'uuid' => strtolower(str_replace(" ", "-", str_replace($special_character, "", $request->input('title')))),
+            'narasumber' => $request->input('narasumber'),
             'title' => $request->input('title'),
+            'kolom' => $request->input('kolom'),
+            'media' => $request->input('media'),
+            'kegiatan' => $request->input('kegiatan'),
             'date' => $request->input('date'),
             'image' => 'articles/' . $imageName,
             'description' => $request->input('description'),
@@ -59,7 +67,7 @@ class ArticleController extends Controller
             'status' => 1,
         ];
         Article::create($data);
-        return back()->with('message', 'Data artikel berhasil ditambahkan!');
+        return redirect('article')->with('message', 'Data artikel berhasil ditambahkan!');
     }
 
     /**
@@ -99,9 +107,13 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
 
         $request->validate([
+            'narasumber' => 'required',
             'title' => 'required',
+            'kolom' => 'required|not_in:0',
+            'media' => 'required',
+            'kegiatan' => 'required',
             'date' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
+            'image' => 'image|mimes:png,jpg,jpeg|max:1024',
             'description' => 'required',
             'source' => 'required',
             'status' => 'required|boolean',
@@ -114,7 +126,11 @@ class ArticleController extends Controller
             $special_character = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '"', ':', ';', '?', '>', '.', '<', ',', "'", '{', '}', '[', ']', '/'];
             $data = [
                 'uuid' => strtolower(str_replace(" ", "-", str_replace($special_character, "", $request->input('title')))),
+                'narasumber' => $request->input('narasumber'),
                 'title' => $request->input('title'),
+                'kolom' => $request->input('kolom'),
+                'media' => $request->input('media'),
+                'kegiatan' => $request->input('kegiatan'),
                 'date' => $request->input('date'),
                 'image' => 'articles/' . $imageName,
                 'description' => $request->input('description'),
@@ -125,8 +141,12 @@ class ArticleController extends Controller
             $special_character = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '"', ':', ';', '?', '>', '.', '<', ',', "'", '{', '}', '[', ']', '/'];
             $data = [
                 'uuid' => strtolower(str_replace(" ", "-", str_replace($special_character, "", $request->input('title')))),
+                'narasumber' => $request->input('narasumber'),
                 'title' => $request->input('title'),
                 'date' => $request->input('date'),
+                'kolom' => $request->input('kolom'),
+                'media' => $request->input('media'),
+                'kegiatan' => $request->input('kegiatan'),
                 'description' => $request->input('description'),
                 'source' => $request->input('source'),
                 'status' => $request->input('status'),

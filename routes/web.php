@@ -10,6 +10,8 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DocumentationController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\InformationController;
+use App\Http\Controllers\LuaranPenelitianUPPMController;
+use App\Http\Controllers\LuaranPkmUPPMController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\OrmawaController;
@@ -23,8 +25,8 @@ use App\Http\Controllers\ProgramVisionController;
 use App\Http\Controllers\FlyerController;
 // UPPM
 use App\Http\Controllers\PanduanUPPMController; 
-use App\Http\Controllers\DataUPPMController;
-use App\Http\Controllers\LuaranUPPMController; 
+use App\Http\Controllers\DataPenelitianUPPMController;
+use App\Http\Controllers\DataPkmUPPMController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,8 +72,10 @@ Route::resource('flyer', FlyerController::class)->middleware('auth');
 
 // UPPM
 Route::resource('panduanuppm', PanduanUPPMController::class)->middleware('auth');
-Route::resource('datauppm', DataUPPMController::class)->middleware('auth');
-Route::resource('luaranuppm', LuaranUPPMController::class)->middleware('auth');
+Route::resource('datapenelitianuppm', DataPenelitianUPPMController::class)->middleware('auth');
+Route::resource('datapkmuppm', DataPkmUPPMController::class)->middleware('auth');
+Route::resource('luaranpenelitianuppm', LuaranPenelitianUPPMController::class)->middleware('auth');
+Route::resource('luaranpkmuppm', LuaranPkmUPPMController::class)->middleware('auth');
 
 Route::patch('information/change/{id}', [InformationController::class, 'status'])->name('information.change')->middleware('auth');
 

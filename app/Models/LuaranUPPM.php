@@ -5,26 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class LuaranUPPM extends Model
 {
     use HasFactory;
-     /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $table = 'articles';
+    protected $table = 'luaran_uppm';
     protected $fillable = [
-        'uuid',
         'title',
-        'date',
-        'narasumber',
-        'kolom',
-        'media',
-        'kegiatan',
-        'image',
-        'description',
-        'source',
+        'writter',
+        'type',
+        'publication',
+        'indexjurnal',
+        'year',
+        'link',
         'status',
     ];
 
@@ -34,7 +31,6 @@ class Article extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'id',
         'created_at',
         'updated_at',
     ];

@@ -8,11 +8,47 @@
                 @csrf
                 @method('PATCH')
                 <div class="w-full">
+                    <input type="text" name="narasumber" value="{{ $article->narasumber }}"
+                        class="w-full p-2 text-gray-700 border border-gray-300 @error('narasumber') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Tulis nama narasumber disini..">
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('narasumber') }}</small>
+                </div>
+                <div class="w-full">
                     <input type="text" name="title" value="{{ $article->title }}"
                         class="w-full p-2 text-gray-700 border border-gray-300 @error('title') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Tulis judul artikel disini..">
                     <small class="mt-2 text-xs text-red-500">
                         {{ $errors->first('title') }}</small>
+                </div>
+                <div class="w-full">
+                    <select name="kolom" class="w-full p-2 text-gray-700 border border-gray-300 @error('kolom') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500">
+                        <option value="{{ $article->kolom }}">{{ $article->kolom }}
+                        </option>
+                        <option value="Wacana">Wacana</option>
+                        <option value="Edukasi">Edukasi</option>
+                        <option value="Gaya Hidup">Gaya Hidup</option>
+                        <option value="Pariwisata">Pariwisata</option>
+                        <option value="Pendidikan">Pendidikan</option>
+                        <option value="Redaksi Radar">Redaksi Radar</option>
+                        <option value="Ekonomi">Ekonomi</option>
+                    </select>
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('kolom') }}</small>
+                </div>
+                <div class="w-full">
+                    <input type="text" name="media" value="{{ $article->media }}"
+                        class="w-full p-2 text-gray-700 border border-gray-300 @error('media') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Tulis nama media disini..">
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('media') }}</small>
+                </div>
+                <div class="w-full">
+                    <input type="text" name="kegiatan" value="{{ $article->kegiatan }}"
+                        class="w-full p-2 text-gray-700 border border-gray-300 @error('kegiatan') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Tulis kegiatan disini..">
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('kegiatan') }}</small>
                 </div>
                 <div class="w-full">
                     <input type="date" name="date" value="{{ $article->date }}"

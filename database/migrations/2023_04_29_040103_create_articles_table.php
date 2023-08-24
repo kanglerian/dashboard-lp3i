@@ -18,6 +18,10 @@ class CreateArticlesTable extends Migration
             $table->string('uuid');
             $table->string('title');
             $table->date('date');
+            $table->string('narasumber');
+            $table->string('kolom');
+            $table->string('media');
+            $table->string('kegiatan');
             $table->string('image');
             $table->text('description');
             $table->string('source');

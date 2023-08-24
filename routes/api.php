@@ -2,7 +2,13 @@
 
 use App\Http\Controllers\API\AgendaAPIController;
 use App\Http\Controllers\API\ArticleAPIController;
+
 use App\Http\Controllers\API\PanduanUPPMAPIController;
+use App\Http\Controllers\API\DataPenelitianUPPMAPIController;
+use App\Http\Controllers\API\DataPkmUPPMAPIController;
+use App\Http\Controllers\API\LuaranPenelitianUPPMAPIController;
+use App\Http\Controllers\API\LuaranPkmUPPMAPIController;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\FlyerAPIController;
 use App\Http\Controllers\API\BannerAPIController;
@@ -66,4 +72,9 @@ Route::get('/programcompetences', [ProgramCompetenceAPIController::class, 'index
 Route::get('/programcompetences/{uuid}', [ProgramCompetenceAPIController::class, 'show']);
 Route::get('/programalumnis', [ProgramAlumniAPIController::class, 'index']);
 Route::get('/programalumnis/{uuid}', [ProgramAlumniAPIController::class, 'show']);
+
 Route::get('/panduanuppm', [PanduanUPPMAPIController::class, 'index']);
+Route::get('/datapenelitianuppm', [DataPenelitianUPPMAPIController::class, 'index']);
+Route::get('/datapkmuppm', [DataPkmUPPMAPIController::class, 'index']);
+Route::get('/luaranpenelitianuppm', [LuaranPenelitianUPPMAPIController::class, 'index']);
+Route::get('/luaranpkmuppm', [LuaranPkmUPPMAPIController::class, 'index']);
