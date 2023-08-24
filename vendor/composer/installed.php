@@ -3,13 +3,22 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'e578ca748efd6b05ae3f17f9e08d612b8d1a7a4b',
+        'reference' => '33a7472e0e01c428e1e9b5294d53e5af65338d77',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'barryvdh/laravel-cors' => array(
+            'pretty_version' => 'v3.0.0',
+            'version' => '3.0.0.0',
+            'reference' => '7c036ec08972d8d5d9db637e772af6887828faf5',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../barryvdh/laravel-cors',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.10.2',
             'version' => '0.10.2.0',
@@ -406,7 +415,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'e578ca748efd6b05ae3f17f9e08d612b8d1a7a4b',
+            'reference' => '33a7472e0e01c428e1e9b5294d53e5af65338d77',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

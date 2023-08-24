@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://politekniklp3i-tasikmalaya.ac.id'],
+    'allowed_origins' => ['https://politekniklp3i-tasikmalaya.ac.id','http://localhost:5173'],
 
     'allowed_origins_patterns' => [],
 
