@@ -10,7 +10,7 @@ class LuaranPkmUPPMAPIController extends Controller
 {
     public function index()
     {
-        $data = DataUPPM::all();
+        $data = DataUPPM::orderBy('year','desc')->get();
         return response()->json($data);
     }
 }
