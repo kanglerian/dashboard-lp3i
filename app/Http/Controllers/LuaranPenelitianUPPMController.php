@@ -55,7 +55,7 @@ class LuaranPenelitianUPPMController extends Controller
             'status' => $request->input('status'),
         ];
         LuaranUPPM::create($data);
-        return back()->with('message', 'Data Luaran UPPM berhasil ditambahkan!');
+        return redirect('luaranpenelitianuppm')->with('message', 'Data Luaran UPPM berhasil ditambahkan!');
     }
 
     /**
@@ -114,7 +114,7 @@ class LuaranPenelitianUPPMController extends Controller
 
         $luaran_uppm->update($data);
 
-        return back()->with('message', 'Data Luaran UPPM berhasil diubah!');
+        return redirect('luaranpenelitianuppm')->with('message', 'Data Luaran UPPM berhasil diubah!');
     }
 
     /**
@@ -128,6 +128,6 @@ class LuaranPenelitianUPPMController extends Controller
         $luaran_uppm = LuaranUPPM::findOrFail($id);
         $luaran_uppm->delete();
 
-        return back()->with('message', 'Data Luaran UPPM berhasil dihapus!');
+        return redirect('luaranpenelitianuppm')->with('message', 'Data Luaran UPPM berhasil dihapus!');
     }
 }

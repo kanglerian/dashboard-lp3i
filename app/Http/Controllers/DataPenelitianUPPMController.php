@@ -52,7 +52,7 @@ class DataPenelitianUPPMController extends Controller
             'status' => $request->input('status'),
         ];
         DataUPPM::create($data);
-        return back()->with('message', 'Data Penelitian UPPM berhasil ditambahkan!');
+        return redirect('datapenelitianuppm')->with('message', 'Data Penelitian UPPM berhasil ditambahkan!');
     }
 
     /**
@@ -101,7 +101,7 @@ class DataPenelitianUPPMController extends Controller
 
         $data_uppm->update($data);
 
-        return back()->with('message', 'Data Penelitian UPPM berhasil diubah!');
+        return redirect('datapenelitianuppm')->with('message', 'Data Penelitian UPPM berhasil diubah!');
     }
 
     /**
@@ -115,6 +115,6 @@ class DataPenelitianUPPMController extends Controller
         $data_uppm = DataUPPM::findOrFail($id);
         $data_uppm->delete();
 
-        return back()->with('message', 'Data penelitian UPPM berhasil dihapus!');
+        return redirect('datapenelitianuppm')->with('message', 'Data penelitian UPPM berhasil dihapus!');
     }
 }
