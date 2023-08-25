@@ -141,13 +141,13 @@
                                 {{ $uppm->writter }}
                             </td>
                             <td class="px-6 py-4">
+                                {{ $uppm->year }}
+                            </td>
+                            <td class="px-6 py-4">
                                 {{ $uppm->publication }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $uppm->indexjurnal }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $uppm->year }}
                             </td>
                             <td class="px-6 py-4">
                                 <a href="{{ $uppm->link }}" target="_blank" class="bg-lp3i-100 hover:bg-lp3i-200 px-3 py-1 rounded-lg text-white">
