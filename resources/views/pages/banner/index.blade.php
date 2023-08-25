@@ -27,6 +27,9 @@
                     <small class="mt-2 text-xs text-slate-600"><span class="font-bold">Ketentuan:</span> Ukuran gambar dimensi 16:9 (1MB)</small>
                     <small class="mt-2 text-xs text-red-500">{{ $errors->first('image') }}</small>
             </div>
+            @if (Auth::user()->role == 'uppm')
+            <input type="hidden" name="locate" value="U">
+            @else
             <div class="flex-2">
                 <select name="locate"
                     class="w-full p-2 text-gray-700 border border-gray-300 @error('locate') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
@@ -34,10 +37,12 @@
                     <option>Pilih lokasi</option>
                     <option value="L">Landing Page</option>
                     <option value="C">Career Center</option>
+                    <option value="U">UPPM</option>
                 </select>
                 <small class="mt-2 text-xs text-red-500">
                     {{ $errors->first('locate') }}</small>
             </div>
+            @endif
             <div class="flex-2">
                 <select name="status"
                     class="w-full p-2 text-gray-700 border border-gray-300 @error('status') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"

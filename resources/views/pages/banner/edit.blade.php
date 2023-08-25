@@ -42,10 +42,14 @@
                                     @case('C')
                                         {{ 'Career Center' }}
                                         @break
+                                        @case('U')
+                                            {{ 'UPPM' }}
+                                            @break
                                 @endswitch
                             </option>
                             <option value="L">Landing Page</option>
                             <option value="C">Career Center</option>
+                            <option value="U">UPPM</option>
                         </select>
                         <small class="mt-2 text-xs text-red-500">
                             {{ $errors->first('locate') }}</small>

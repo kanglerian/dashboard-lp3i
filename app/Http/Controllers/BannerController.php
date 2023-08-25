@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Banner;
 use Illuminate\Support\Facades\File;
@@ -17,7 +18,11 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banners = Banner::all();
+        $bannersQuery = Banner::query();
+        if(Auth::user()->role == 'uppm'){
+            $bannersQuery->where('locate','U');
+        }
+        $banners = $bannersQuery->get();
         return view('pages.banner.index')->with([
             'banners' => $banners,
         ]);
@@ -43,7 +48,7 @@ class BannerController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
             'locate' => 'required|not_in:Pilih lokasi',
             'status' => 'required|boolean|not_in:Pilih',
         ]);
@@ -56,7 +61,7 @@ class BannerController extends Controller
             'status' => $request->input('status'),
         ];
         Banner::create($data);
-        return back()->with('message', 'Data Banner berhasil ditambahkan!');
+        return redirect('banner')->with('message', 'Data Banner berhasil ditambahkan!');
     }
 
     /**
@@ -95,7 +100,7 @@ class BannerController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg|max:1024|dimensions:ratio=16/9',
+            'image' => 'image|mimes:png,jpg,jpeg|max:1024',
             'locate' => 'required|not_in:Pilih lokasi',
             'status' => 'required|boolean|not_in:Pilih',
         ]);
@@ -122,7 +127,7 @@ class BannerController extends Controller
 
         $banner->update($data);
 
-        return back()->with('message', 'Data Banner berhasil diubah!');
+        return redirect('banner')->with('message', 'Data Banner berhasil diubah!');
     }
 
     /**
@@ -137,6 +142,6 @@ class BannerController extends Controller
         File::delete(public_path($banner->image));
         $banner->delete();
 
-        return back()->with('message', 'Data Banner berhasil dihapus!');
+        return redirect('banner')->with('message', 'Data Banner berhasil dihapus!');
     }
 }

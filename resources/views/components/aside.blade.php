@@ -1,13 +1,13 @@
 <aside id="aside" class="flex-2 z-[1] md:m-0 rounded-lg md:static md:block text-sm hidden">
     <ul class="w-full text-sm font-medium space-y-2 text-gray-700 border p-3 border-gray-200 rounded-lg mb-4">
+        <li
+            class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
+            <a href="{{ route('banner.index') }}"><i class="fa-solid fa-rectangle-ad mr-1"></i> Spanduk</a>
+        </li>
         @if (Auth::user()->role == 'admin')
             <li
                 class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
                 <a href="{{ route('flyer.index') }}"><i class="fa-solid fa-image mr-1"></i> Flyer</a>
-            </li>
-            <li
-                class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
-                <a href="{{ route('banner.index') }}"><i class="fa-solid fa-rectangle-ad mr-1"></i> Spanduk</a>
             </li>
             <li
                 class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
@@ -81,7 +81,8 @@
             </li>
             <li
                 class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
-                <a href="{{ route('datapenelitianuppm.index') }}"><i class="fa-solid fa-database mr-1"></i> Data Penelitian</a>
+                <a href="{{ route('datapenelitianuppm.index') }}"><i class="fa-solid fa-database mr-1"></i> Data
+                    Penelitian</a>
             </li>
             <li
                 class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
@@ -89,11 +90,13 @@
             </li>
             <li
                 class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
-                <a href="{{ route('luaranpenelitianuppm.index') }}"><i class="fa-solid fa-up-right-from-square"></i> Luaran Penelitian</a>
+                <a href="{{ route('luaranpenelitianuppm.index') }}"><i class="fa-solid fa-up-right-from-square"></i>
+                    Luaran Penelitian</a>
             </li>
             <li
                 class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
-                <a href="{{ route('luaranpkmuppm.index') }}"><i class="fa-solid fa-up-right-from-square"></i> Luaran PKM</a>
+                <a href="{{ route('luaranpkmuppm.index') }}"><i class="fa-solid fa-up-right-from-square"></i> Luaran
+                    PKM</a>
             </li>
         @endif
     </ul>
