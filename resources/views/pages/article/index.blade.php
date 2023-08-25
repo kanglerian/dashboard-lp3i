@@ -12,7 +12,7 @@
                 class="inline-block text-sm rounded-lg text-white bg-sky-500 hover:bg-sky-600 px-5 py-2"><i
                     class="fa-solid fa-circle-plus"></i> Tambah Data</a>
 
-            <span role="button" onclick="copyLinkAPI()"
+            <span role="button" onclick="copyLinkAPI('/api/articles')"
                 class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i>
                 <span id="linkAPI">/api/articles</span></span>
         </div>

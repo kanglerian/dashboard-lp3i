@@ -9,7 +9,13 @@ class ArticleAPIController extends Controller
 {
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::orderBy('date','desc')->get();
         return response()->json($articles);
+    }
+
+    public function show($uuid)
+    {
+        $article = Article::where('uuid', $uuid)->first();
+        return response()->json($article);
     }
 }
