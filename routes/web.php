@@ -3,6 +3,7 @@
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BookChapterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BenefitController;
@@ -76,6 +77,7 @@ Route::resource('datapenelitianuppm', DataPenelitianUPPMController::class)->midd
 Route::resource('datapkmuppm', DataPkmUPPMController::class)->middleware('auth');
 Route::resource('luaranpenelitianuppm', LuaranPenelitianUPPMController::class)->middleware('auth');
 Route::resource('luaranpkmuppm', LuaranPkmUPPMController::class)->middleware('auth');
+Route::resource('bookchapter', BookChapterController::class)->middleware('auth');
 
 Route::patch('information/change/{id}', [InformationController::class, 'status'])->name('information.change')->middleware('auth');
 

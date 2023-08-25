@@ -77,6 +77,10 @@
             </li>
             <li
                 class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
+                <a href="{{ route('bookchapter.index') }}"><i class="fa-solid fa-book mr-1"></i> Book Chapter</a>
+            </li>
+            <li
+                class="w-full px-4 py-2 bg-white hover:text-white hover:bg-cyan-800 transition ease-in-out border md:border-none border-gray-200 rounded-lg">
                 <a href="{{ route('datapenelitianuppm.index') }}"><i class="fa-solid fa-database mr-1"></i> Data Penelitian</a>
             </li>
             <li

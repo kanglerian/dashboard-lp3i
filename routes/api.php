@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\AgendaAPIController;
 use App\Http\Controllers\API\ArticleAPIController;
 
+use App\Http\Controllers\API\BookChapterAPIController;
 use App\Http\Controllers\API\PanduanUPPMAPIController;
 use App\Http\Controllers\API\DataPenelitianUPPMAPIController;
 use App\Http\Controllers\API\DataPkmUPPMAPIController;
@@ -78,3 +79,4 @@ Route::get('/datapenelitianuppm', [DataPenelitianUPPMAPIController::class, 'inde
 Route::get('/datapkmuppm', [DataPkmUPPMAPIController::class, 'index']);
 Route::get('/luaranpenelitianuppm', [LuaranPenelitianUPPMAPIController::class, 'index']);
 Route::get('/luaranpkmuppm', [LuaranPkmUPPMAPIController::class, 'index']);
+Route::get('/bookchapter', [BookChapterAPIController::class, 'index']);
