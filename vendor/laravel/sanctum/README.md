@@ -1,10 +1,10 @@
-<p align="center"><img src="/art/logo.svg" alt="Logo Laravel Sanctum"></p>
+<p align="center"><img loading="lazy" src="/art/logo.svg" alt="Logo Laravel Sanctum"></p>
 
 <p align="center">
-<a href="https://github.com/laravel/sanctum/actions"><img src="https://github.com/laravel/sanctum/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/sanctum"><img src="https://img.shields.io/packagist/dt/laravel/sanctum" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/sanctum"><img src="https://img.shields.io/packagist/v/laravel/sanctum" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/sanctum"><img src="https://img.shields.io/packagist/l/laravel/sanctum" alt="License"></a>
+<a href="https://github.com/laravel/sanctum/actions"><img loading="lazy" src="https://github.com/laravel/sanctum/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/sanctum"><img loading="lazy" src="https://img.shields.io/packagist/dt/laravel/sanctum" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/sanctum"><img loading="lazy" src="https://img.shields.io/packagist/v/laravel/sanctum" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/sanctum"><img loading="lazy" src="https://img.shields.io/packagist/l/laravel/sanctum" alt="License"></a>
 </p>
 
 ## Introduction

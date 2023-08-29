@@ -4,27 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Politeknik LP3I Kampus Tasikmalaya</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
-    <link href="{{ asset('css/flowbite.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" />
-    <script src="{{ asset('js/tailwind.js') }}"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 </head>
 
 <body class="bg-gray-50">
     @include('components.navbar')
 
     <section class="container mx-auto px-4 py-3">
-
-        <div class="mb-5 mt-5">
-            <button id="btnAside" class="block font-bold font-base"><i class="fa-solid fa-bars mr-2"></i>
-                Pengaturan</button>
-        </div>
-        <div class="flex gap-5 mb-24">
-            @include('components.aside')
+        <div class="space-y-1">
+            @include('components.navbar-horizontal')
             @yield('content')
         </div>
     </section>
@@ -33,7 +27,7 @@
         <div class="container mx-auto px-4 py-8">
             <div class="flex md:flex-row flex-col justify-between gap-5">
                 <div>
-                    <img src="{{ asset('') }}public/img/lp3i.svg" alt="" class="w-52">
+                    <img loading="lazy" src="{{ asset('') }}public/img/lp3i.svg" alt="" class="w-52">
                     <a role="button" target="_blank" href="https://goo.gl/maps/1dxJCzGBDvgNje8cA"
                         class="block text-sm text-gray-700 my-3">Jl. Ir. H. Juanda No.106, Panglayungan, Kec.
                         Cipedes<br>Kota Tasikmalaya, Jawa Barat 46151</a>
@@ -91,11 +85,11 @@
         </div>
     </footer>
 
-    <script src="{{ asset('js/jquery-3.6.3.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
     <script src="{{ asset('js/all.min.js') }}"></script>
     <script src="{{ asset('js/lottie-player.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/viewer-static.min.js') }}"></script>
-    <script src="{{ asset('js/flowbite.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script>
         $(document).ready(function() {

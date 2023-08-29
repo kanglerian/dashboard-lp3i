@@ -77,7 +77,7 @@ final class Directory extends Renderer
             $data['name'] = 'Total';
         } else {
             $up           = str_repeat('../', count($node->pathAsArray()) - 2);
-            $data['icon'] = sprintf('<img src="%s_icons/file-code.svg" class="octicon" />', $up);
+            $data['icon'] = sprintf('<img loading="lazy" src="%s_icons/file-code.svg" class="octicon" />', $up);
 
             if ($node instanceof DirectoryNode) {
                 $data['name'] = sprintf(
@@ -85,7 +85,7 @@ final class Directory extends Renderer
                     $node->name(),
                     $node->name()
                 );
-                $data['icon'] = sprintf('<img src="%s_icons/file-directory.svg" class="octicon" />', $up);
+                $data['icon'] = sprintf('<img loading="lazy" src="%s_icons/file-directory.svg" class="octicon" />', $up);
             } elseif ($this->hasBranchCoverage) {
                 $data['name'] = sprintf(
                     '%s <a class="small" href="%s.html">[line]</a> <a class="small" href="%s_branch.html">[branch]</a> <a class="small" href="%s_path.html">[path]</a>',

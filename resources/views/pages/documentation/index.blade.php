@@ -56,7 +56,7 @@
             </div>
         @endif
 
-        <div class="relative overflow-x-auto border border-gray-300 rounded-lg">
+        <div class="relative overflow-x-auto h-screen border border-gray-300 rounded-lg">
             <table class="w-full text-sm text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
@@ -81,7 +81,7 @@
                                 {{ $number + 1 }}
                             </td>
                             <th scope="row" class="px-6 py-4">
-                                <img src="{{ asset($documentation->image) }}" class="w-32 rounded">
+                                <img loading="lazy" src="{{ asset($documentation->image) }}" class="w-32 rounded">
                             </th>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900">
                                 {{ $documentation->title }}

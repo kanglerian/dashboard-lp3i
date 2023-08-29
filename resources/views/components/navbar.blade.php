@@ -1,9 +1,9 @@
-<nav class="bg-lp3i-500 text-white text-xs py-3">
+<nav class="bg-lp3i-400 text-white text-xs py-3">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <a href="https://politekniklp3i-tasikmalaya.ac.id/" target="_blank">
-                    <img src="{{ asset('img/lp3i-white.svg') }}" class="h-14">
+                    <img loading="lazy" src="{{ asset('img/lp3i-white.svg') }}" class="h-14">
                 </a>
             </div>
             <div class="flex gap-3">

@@ -5,13 +5,13 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/ramsey/uuid"><img src="http://img.shields.io/badge/source-ramsey/uuid-blue.svg?style=flat-square" alt="Source Code"></a>
-    <a href="https://packagist.org/packages/ramsey/uuid"><img src="https://img.shields.io/packagist/v/ramsey/uuid.svg?style=flat-square&label=release" alt="Download Package"></a>
-    <a href="https://php.net"><img src="https://img.shields.io/packagist/php-v/ramsey/uuid.svg?style=flat-square&colorB=%238892BF" alt="PHP Programming Language"></a>
-    <a href="https://github.com/ramsey/uuid/blob/4.x/LICENSE"><img src="https://img.shields.io/packagist/l/ramsey/uuid.svg?style=flat-square&colorB=darkcyan" alt="Read License"></a>
-    <a href="https://github.com/ramsey/uuid/actions/workflows/continuous-integration.yml"><img src="https://img.shields.io/github/actions/workflow/status/ramsey/uuid/continuous-integration.yml?branch=4.x&logo=github&style=flat-square" alt="Build Status"></a>
-    <a href="https://app.codecov.io/gh/ramsey/uuid/branch/4.x"><img src="https://img.shields.io/codecov/c/github/ramsey/uuid/4.x?label=codecov&logo=codecov&style=flat-square" alt="Codecov Code Coverage"></a>
-    <a href="https://shepherd.dev/github/ramsey/uuid"><img src="https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Framsey%2Fuuid%2Fcoverage" alt="Psalm Type Coverage"></a>
+    <a href="https://github.com/ramsey/uuid"><img loading="lazy" src="http://img.shields.io/badge/source-ramsey/uuid-blue.svg?style=flat-square" alt="Source Code"></a>
+    <a href="https://packagist.org/packages/ramsey/uuid"><img loading="lazy" src="https://img.shields.io/packagist/v/ramsey/uuid.svg?style=flat-square&label=release" alt="Download Package"></a>
+    <a href="https://php.net"><img loading="lazy" src="https://img.shields.io/packagist/php-v/ramsey/uuid.svg?style=flat-square&colorB=%238892BF" alt="PHP Programming Language"></a>
+    <a href="https://github.com/ramsey/uuid/blob/4.x/LICENSE"><img loading="lazy" src="https://img.shields.io/packagist/l/ramsey/uuid.svg?style=flat-square&colorB=darkcyan" alt="Read License"></a>
+    <a href="https://github.com/ramsey/uuid/actions/workflows/continuous-integration.yml"><img loading="lazy" src="https://img.shields.io/github/actions/workflow/status/ramsey/uuid/continuous-integration.yml?branch=4.x&logo=github&style=flat-square" alt="Build Status"></a>
+    <a href="https://app.codecov.io/gh/ramsey/uuid/branch/4.x"><img loading="lazy" src="https://img.shields.io/codecov/c/github/ramsey/uuid/4.x?label=codecov&logo=codecov&style=flat-square" alt="Codecov Code Coverage"></a>
+    <a href="https://shepherd.dev/github/ramsey/uuid"><img loading="lazy" src="https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Framsey%2Fuuid%2Fcoverage" alt="Psalm Type Coverage"></a>
 </p>
 
 ramsey/uuid is a PHP library for generating and working with universally unique

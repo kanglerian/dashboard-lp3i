@@ -140,7 +140,7 @@ class FlyerController extends Controller
         File::delete(public_path($flyer->image));
         $flyer->delete();
 
-        return back()->with('message', 'Data flyer berhasil dihapus!');
+        return session()->flash('message', 'Data flyer berhasil dihapus!');
     }
 
 

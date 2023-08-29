@@ -75,7 +75,7 @@
                 </form>
             </div>
             <div class="w-full md:w-2/4 order-1 md:order-none">
-                <img src="{{ asset($program->image) }}" alt="{{ $program->title }}"
+                <img loading="lazy" src="{{ asset($program->image) }}" alt="{{ $program->title }}"
                     class="rounded-lg border-4 border-white shadow">
             </div>
         </div>

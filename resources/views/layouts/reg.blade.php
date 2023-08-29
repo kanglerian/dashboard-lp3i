@@ -19,7 +19,7 @@
         <div class="flex flex-col md:flex-row justify-center items-center h-screen gap-10 px-5">
             <header>
                 <div class="flex justify-center items-center">
-                    <a href="#" role="button"><img src="{{ asset('img/lp3i.svg') }}"
+                    <a href="#" role="button"><img loading="lazy" src="{{ asset('img/lp3i.svg') }}"
                             alt="Politeknik LP3I Kampus Tasikmalaya" class="w-60"></a>
                 </div>
             </header>

@@ -55,7 +55,7 @@
                 </form>
             </div>
             <div class="w-full md:w-1/4 order-1 md:order-none">
-                <img src="{{ asset($ormawa->image) }}" alt="{{ $ormawa->title }}"
+                <img loading="lazy" src="{{ asset($ormawa->image) }}" alt="{{ $ormawa->title }}"
                     class="rounded-lg border-4 border-white shadow">
             </div>
         </div>

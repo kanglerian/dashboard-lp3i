@@ -354,7 +354,7 @@ is used as a ``src`` attribute::
     $message->setBody(
     '<html>' .
     ' <body>' .
-    '  Here is an image <img src="' . // Embed the file
+    '  Here is an image <img loading="lazy" src="' . // Embed the file
          $message->embed(Swift_Image::fromPath('image.png')) .
        '" alt="Image" />' .
     '  Rest of message' .
@@ -367,7 +367,7 @@ is used as a ``src`` attribute::
     $message->setBody(
     '<html>' .
     ' <body>' .
-    '  Here is an image <img src="' .
+    '  Here is an image <img loading="lazy" src="' .
          $message->embed(Swift_Image::fromPath('http://site.tld/logo.png')) .
        '" alt="Image" />' .
     '  Rest of message' .
@@ -393,7 +393,7 @@ is used as a ``src`` attribute::
         $message->setBody(
         '<html>' .
         ' <body>' .
-        '  Here is an image <img src="' . $cid . '" alt="Image" />' .
+        '  Here is an image <img loading="lazy" src="' . $cid . '" alt="Image" />' .
         '  Rest of message' .
         ' </body>' .
         '</html>',
@@ -420,7 +420,7 @@ is used as a ``src`` attribute::
     $message->setBody(
     '<html>' .
     ' <body>' .
-    '  Here is an image <img src="' . // Embed the file
+    '  Here is an image <img loading="lazy" src="' . // Embed the file
          $message->embed(new Swift_Image($img_data, 'image.jpg', 'image/jpeg')) .
        '" alt="Image" />' .
     '  Rest of message' .
@@ -446,7 +446,7 @@ is used as a ``src`` attribute::
         $message->setBody(
         '<html>' .
         ' <body>' .
-        '  Here is an image <img src="' . $cid . '" alt="Image" />' .
+        '  Here is an image <img loading="lazy" src="' . $cid . '" alt="Image" />' .
         '  Rest of message' .
         ' </body>' .
         '</html>',

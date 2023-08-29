@@ -1,4 +1,4 @@
-<p style="text-align: center"><img src="https://github.com/FakerPHP/Artwork/raw/main/src/socialcard.png" alt="Social card of FakerPHP"></p>
+<p style="text-align: center"><img loading="lazy" src="https://github.com/FakerPHP/Artwork/raw/main/src/socialcard.png" alt="Social card of FakerPHP"></p>
 
 # Faker
 

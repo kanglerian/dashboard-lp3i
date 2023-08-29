@@ -145,7 +145,7 @@
                 </form>
             </div>
             <div class="w-full md:w-2/4 order-1 md:order-none">
-                <img src="{{ asset($alumni->image) }}" alt="{{ $alumni->title }}"
+                <img loading="lazy" src="{{ asset($alumni->image) }}" alt="{{ $alumni->title }}"
                     class="rounded-lg border-4 border-white shadow">
             </div>
         </div>

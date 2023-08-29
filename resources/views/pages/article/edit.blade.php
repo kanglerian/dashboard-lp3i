@@ -97,7 +97,7 @@
         </div>
 
         <div class="w-full md:w-2/4 order-1 md:order-none">
-            <img src="{{ asset($article->image) }}" alt="{{ $article->title }}"
+            <img loading="lazy" src="{{ asset($article->image) }}" alt="{{ $article->title }}"
                 class="rounded-lg border-4 border-white shadow">
         </div>
 

@@ -54,7 +54,7 @@
                 </form>
             </div>
             <div class="w-full md:w-1/4 order-1 md:order-none">
-                <img src="{{ asset($company->image) }}" alt="{{ $company->name }}"
+                <img loading="lazy" src="{{ asset($company->image) }}" alt="{{ $company->name }}"
                     class="rounded-lg border-4 border-white shadow">
             </div>
         </div>

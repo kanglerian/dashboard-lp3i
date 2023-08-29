@@ -119,7 +119,7 @@
             </div>
         @endif
 
-        <div class="relative overflow-x-auto border border-gray-300 rounded-lg">
+        <div class="relative overflow-x-auto h-screen border border-gray-300 rounded-lg">
             <table class="w-full text-sm text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
@@ -147,7 +147,7 @@
                                 {{ $no + 1 }}
                             </td>
                             <th scope="row" class="px-2 py-4">
-                                <img src="{{ asset($alumni->image) }}" class="w-32 rounded-lg">
+                                <img loading="lazy" src="{{ asset($alumni->image) }}" class="w-32 rounded-lg">
                             </th>
                             <th scope="row" class="flex flex-col px-2 py-4 font-light">
                                 <span>Nama: {{ $alumni->name }}</span>

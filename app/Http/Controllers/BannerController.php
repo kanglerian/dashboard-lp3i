@@ -142,6 +142,6 @@ class BannerController extends Controller
         File::delete(public_path($banner->image));
         $banner->delete();
 
-        return redirect('banner')->with('message', 'Data Banner berhasil dihapus!');
+        return session()->flash('message', 'Data banner berhasil dihapus!');
     }
 }

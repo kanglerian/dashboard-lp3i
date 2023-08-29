@@ -17,6 +17,7 @@ class CreateFlyerTable extends Migration
             $table->id();
             $table->string('headline');
             $table->string('paragraph');
+            $table->string('location');
             $table->string('image');
             $table->boolean('status');
             $table->timestamps();
