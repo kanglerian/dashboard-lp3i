@@ -17,6 +17,7 @@ class CreateInformationsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->string('locate');
             $table->string('youtube');
             $table->boolean('status');
             $table->timestamps();

@@ -17,6 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->string('link');
             $table->boolean('status');
             $table->timestamps();
         });
