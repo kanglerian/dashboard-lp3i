@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex items-center gap-5 md:gap-10">
-        <div class="w-full md:w-2/3 space-y-5">
+        <div class="w-full md:w-1/2 space-y-5">
             <div class="space-y-2 mt-4">
                 <a href="{{ route('organization.index') }}"
                     class="inline-block text-sm bg-slate-100 hover:bg-slate-200 text-slate-900 px-4 py-2 rounded-lg mb-2">
@@ -62,7 +62,7 @@
                 </button>
             </form>
         </div>
-        <div class="w-full md:w-1/3 order-1 md:order-none">
+        <div class="w-full md:w-1/2 order-1 md:order-none">
             <iframe frameborder="0" style="width:100%;height:1135px;" src="<?= $organization->drawio ?>"></iframe>
         </div>
     </div>
