@@ -63,8 +63,7 @@
             </form>
         </div>
         <div class="w-full md:w-1/3 order-1 md:order-none">
-            <div class="mxgraph" style="max-width:100%;border:1px solid transparent;"
-                data-mxgraph="<?= $organization->drawio ?>"></div>
+            <iframe frameborder="0" style="width:100%;height:1135px;" src="<?= $organization->drawio ?>"></iframe>
         </div>
     </div>
 @endsection
