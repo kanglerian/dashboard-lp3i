@@ -63,7 +63,7 @@
             </form>
         </div>
         <div class="w-full md:w-1/2 order-1 md:order-none">
-            <iframe frameborder="0" style="width:100%;height:1135px;" src="<?= $organization->drawio ?>"></iframe>
+            <iframe frameborder="0" style="width:100%;height:500px;" src="<?= $organization->drawio ?>"></iframe>
         </div>
     </div>
 @endsection
