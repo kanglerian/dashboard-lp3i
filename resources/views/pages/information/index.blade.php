@@ -38,7 +38,7 @@
                 </div>
                 <div class="w-full">
                     <label for="locate" class="block mb-1 text-sm font-medium text-gray-900">Pilih lokasi</label>
-                    <select type="text" name="locate" id="locate"
+                    <select name="locate" id="locate"
                         class="bg-gray-50 border border-gray-300 @error('locate') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         required>
                         <option>Pilih lokasi</option>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="w-full">
                     <label for="status" class="block mb-1 text-sm font-medium text-gray-900">Status</label>
-                    <select type="text" name="status" id="status"
+                    <select name="status" id="status"
                         class="bg-gray-50 border border-gray-300 @error('status') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         required>
                         <option>Pilih</option>
@@ -166,3 +166,27 @@
             </div>
         </div>
     @endsection
+
+    <script>
+        const deleteRecord = (id) => {
+            var token = $('meta[name="csrf-token"]').attr('content');
+            if (confirm(`Apakah kamu yakin akan menghapus data?`)) {
+                $.ajax({
+                    url: `/information/${id}`,
+                    type: 'POST',
+                    data: {
+                        '_method': 'DELETE',
+                        '_token': token
+                    },
+                    success: function(response) {
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error deleting record');
+                        console.log(error);
+                        console.log(status);
+                    }
+                })
+            }
+        }
+    </script>

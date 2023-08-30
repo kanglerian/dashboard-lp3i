@@ -15,6 +15,7 @@ class CreateOrmawasTable extends Migration
     {
         Schema::create('ormawas', function (Blueprint $table) {
             $table->id();
+            $table->string('uuid');
             $table->string('title');
             $table->text('description');
             $table->string('image');

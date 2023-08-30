@@ -1,73 +1,94 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="flex-1 overflow-x-auto px-2">
-        <div class="space-y-2 mb-2">
-            <a href="banner">
-                <h1 class="font-bold text-2xl">Testimonial</h1>
-            </a>
-            <p class="text-gray-500 text-sm">Fitur agenda adalah konten yang dapat digunakan pada halaman depan untuk
-                menyampaikan berbagai macam agenda yang akan dilaksanakan di LP3I. Ini adalah cara yang berguna dan nyaman
-                untuk memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
-            <span role="button" onclick="copyLinkAPI('/api/testimonals')"
-                class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i class="fa-solid fa-link"></i>
-                <span id="linkAPI">/api/testimonals</span></span>
-        </div>
-        <form action="{{ route('programalumni.store') }}" class="flex flex-col md:flex-row md:items-start gap-4 py-3"
-            method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="flex-1 space-y-2">
-                <div>
-                    <input type="text" name="name"
-                        class="w-full p-2 text-gray-700 border border-gray-300 @error('name') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Tulis nama lengkap disini..">
-                    <small class="mt-2 text-xs text-red-500">
-                        {{ $errors->first('name') }}</small>
-                </div>
-                <div>
-                    <input type="text" name="work"
-                        class="w-full p-2 text-gray-700 border border-gray-300 @error('work') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Tulis nama perusahaan tempat bekerja disini..">
-                    <small class="mt-2 text-xs text-red-500">
-                        {{ $errors->first('work') }}</small>
-                </div>
-                <div>
-                    <input type="number" name="year"
-                        class="w-full p-2 text-gray-700 border border-gray-300 @error('year') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Tulis tahun lulus disini..">
-                    <small class="mt-2 text-xs text-red-500">
-                        {{ $errors->first('year') }}</small>
-                </div>
+    <div class="flex flex-col">
+        <div class="flex flex-col md:flex-row items-center gap-5 py-5">
+            <div class="w-full md:w-1/2 space-y-2">
+                <a href="{{ route('facility.index') }}">
+                    <h1 class="font-bold text-2xl">Testimonial</h1>
+                </a>
+                <p class="text-gray-500 text-sm">Fitur fasilitas adalah konten yang dapat digunakan pada halaman depan untuk
+                    menyampaikan berbagai macam fasilitas yang ada di LP3I. Ini adalah cara yang berguna dan nyaman untuk
+                    memperbarui konten tanpa harus mengubah bagian lain dari halaman.</p>
+                <span role="button" onclick="copyLinkAPI('/api/testimonals')"
+                    class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i
+                        class="fa-solid fa-link"></i>
+                    <span id="linkAPI">/api/testimonals</span></span>
             </div>
-            <div class="flex-1 space-y-2">
-                <div>
-                    <input type="text" name="school"
-                        class="w-full p-2 text-gray-700 border border-gray-300 @error('school') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Tulis nama sekolah disini..">
+            <form action="{{ route('programalumni.store') }}" class="w-full md:w-1/2 space-y-2" method="POST"
+                enctype="multipart/form-data">
+                @csrf
+                <div class="w-full">
+                    <label for="name" class="block mb-1 text-sm font-medium text-gray-900">Nama lengkap</label>
+                    <input type="text" name="name" id="name"
+                        class="bg-gray-50 border border-gray-300 @error('name') border-red-500 @enderror  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Tulis nama alumni disini.." required>
                     <small class="mt-2 text-xs text-red-500">
-                        {{ $errors->first('school') }}</small>
+                        {{ $errors->first('name') }}
+                    </small>
                 </div>
-                <div>
-                    <input type="text" name="profession"
-                        class="w-full p-2 text-gray-700 border border-gray-300 @error('profession') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Tulis nama profesi disini..">
+                <div class="w-full">
+                    <label for="school" class="block mb-1 text-sm font-medium text-gray-900">Asal sekolah</label>
+                    <input type="text" name="school" id="school"
+                        class="bg-gray-50 border border-gray-300 @error('school') border-red-500 @enderror  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Tulis nama sekolah disini.." required>
                     <small class="mt-2 text-xs text-red-500">
-                        {{ $errors->first('profession') }}</small>
+                        {{ $errors->first('school') }}
+                    </small>
                 </div>
-                <div>
-                    <input type="file" name="image"
-                        class="w-full text-gray-700 border border-gray-300 @error('image') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500">
-                    <small class="mt-2 text-xs text-slate-600"><span class="font-bold">Ketentuan:</span> Ukuran
-                        gambar
-                        dimensi
-                        1:1 (1MB)</small>
-                    <small class="mt-2 text-xs text-red-500">{{ $errors->first('image') }}</small>
+                <div class="w-full">
+                    <label for="work" class="block mb-1 text-sm font-medium text-gray-900">Tempat bekerja</label>
+                    <input type="text" name="work" id="work"
+                        class="bg-gray-50 border border-gray-300 @error('work') border-red-500 @enderror  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Tulis nama perusahaan tempat bekerja disini.." required>
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('work') }}
+                    </small>
                 </div>
-            </div>
-            <div class="flex-1 space-y-2">
-                <div>
-                    <select name="uuid"
-                        class="w-full p-2 text-gray-700 border border-gray-300 @error('uuid') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                <div class="w-full">
+                    <label for="profession" class="block mb-1 text-sm font-medium text-gray-900">Profesi</label>
+                    <input type="text" name="profession" id="profession"
+                        class="bg-gray-50 border border-gray-300 @error('profession') border-red-500 @enderror  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Tulis nama profesi disini.." required>
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('profession') }}
+                    </small>
+                </div>
+                <div class="w-full">
+                    <label for="year" class="block mb-1 text-sm font-medium text-gray-900">Alumni lulus</label>
+                    <input type="year" name="year" id="year"
+                        class="bg-gray-50 border border-gray-300 @error('year') border-red-500 @enderror  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Tulis tahun lulus disini.." required>
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('year') }}
+                    </small>
+                </div>
+                <div class="w-full">
+                    <label class="block mb-1 text-sm font-medium text-gray-900" for="image">Upload Foto</label>
+                    <input
+                        class="bg-gray-50 border border-gray-300 @error('image') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        id="image" type="file" name="image">
+                    <div class="mt-1 text-xs text-gray-500">
+                        <span class="font-bold">Ketentuan:</span>
+                        <span>Ukuran maksimal 1MB</span>
+                    </div>
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('image') }}
+                    </small>
+                </div>
+                <div class="w-full">
+                    <label for="quote" class="block mb-1 text-sm font-medium text-gray-900">Quote</label>
+                    <textarea name="quote" id="quote"
+                        class="bg-gray-50 border border-gray-300 @error('quote') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Isi quote disini..." required></textarea>
+                    <small class="mt-2 text-xs text-red-500">
+                        {{ $errors->first('quote') }}
+                    </small>
+                </div>
+                <div class="w-full">
+                    <label for="uuid" class="block mb-1 text-sm font-medium text-gray-900">Program Studi</label>
+                    <select name="uuid" id="uuid"
+                        class="bg-gray-50 border border-gray-300 @error('uuid') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         required>
                         <option>Pilih Program Studi</option>
                         @foreach ($programs as $program)
@@ -75,11 +96,13 @@
                         @endforeach
                     </select>
                     <small class="mt-2 text-xs text-red-500">
-                        {{ $errors->first('uuid') }}</small>
+                        {{ $errors->first('uuid') }}
+                    </small>
                 </div>
-                <div>
-                    <select name="career"
-                        class="w-full p-2 text-gray-700 border border-gray-300 @error('career') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
+                <div class="w-full">
+                    <label for="career" class="block mb-1 text-sm font-medium text-gray-900">Karir</label>
+                    <select name="career" id="career"
+                        class="bg-gray-50 border border-gray-300 @error('career') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         required>
                         <option>Pilih Karir</option>
                         <option value="M">Magang</option>
@@ -88,25 +111,26 @@
                         <option value="T">Tidak bekerja</option>
                     </select>
                     <small class="mt-2 text-xs text-red-500">
-                        {{ $errors->first('career') }}</small>
+                        {{ $errors->first('career') }}
+                    </small>
                 </div>
-                <div>
-                    <textarea type="text" name="quote" rows="3"
-                        class="w-full p-2 text-gray-700 border border-gray-300 @error('quote') border-red-500 @enderror rounded-md bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Tulis testimoni alumni disini.."></textarea>
+                <div class="w-full">
+                    <label for="status" class="block mb-1 text-sm font-medium text-gray-900">Status</label>
+                    <select name="status" id="status"
+                        class="bg-gray-50 border border-gray-300 @error('status') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        required>
+                        <option>Pilih</option>
+                        <option value="1">Aktif</option>
+                        <option value="0">Tidak aktif</option>
+                    </select>
                     <small class="mt-2 text-xs text-red-500">
-                        {{ $errors->first('quote') }}</small>
+                        {{ $errors->first('status') }}
+                    </small>
                 </div>
-            </div>
-            <div class="flex flex-col space-y-2">
-                <span role="button" onclick="copyLinkAPI('/api/programtestimonials/')"
-                    class="inline-block text-sm rounded-lg text-sky-600 bg-slate-200 px-5 py-2"><i
-                        class="fa-solid fa-link"></i> Salin API</span>
-                <button type="submit" class="bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
+                <button type="submit" class="mt-3 bg-cyan-600 text-white text-sm py-2 px-3 rounded-md"><i
                         class="fa-solid fa-floppy-disk"></i> <span id="btnSubmit">Simpan</span></button>
-            </div>
-        </form>
-
+            </form>
+        </div>
         @if (session('message'))
             <div id="alert" class="flex p-4 mb-4 bg-green-50 text-green-800 rounded-lg" role="alert">
                 <i class="fa-solid fa-circle-check"></i>
@@ -160,12 +184,15 @@
                                     @case('M')
                                         <span class="bg-sky-500 px-3 py-1 rounded-md text-white">Magang</span>
                                     @break
+
                                     @case('K')
                                         <span class="bg-teal-500 px-3 py-1 rounded-md text-white">Kerja</span>
                                     @break
+
                                     @case('W')
                                         <span class="bg-amber-500 px-3 py-1 rounded-md text-white">Wirausaha</span>
                                     @break
+
                                     @case('T')
                                         <span class="bg-red-500 px-3 py-1 rounded-md text-white">Tidak bekerja</span>
                                     @break
@@ -201,7 +228,7 @@
                                     class="inline">
                                     @csrf
                                     @method('PATCH')
-                                   <input type="hidden" name="uuid" value="{{ $alumni->uuid }}">
+                                    <input type="hidden" name="uuid" value="{{ $alumni->uuid }}">
                                     <input type="hidden" name="name" value="{{ $alumni->name }}">
                                     <input type="hidden" name="school" value="{{ $alumni->school }}">
                                     <input type="hidden" name="work" value="{{ $alumni->work }}">
@@ -222,44 +249,10 @@
                                         href="{{ route('programalumni.edit', $alumni->id) }}"><i
                                             class="fa-regular fa-pen-to-square"></i></a></button>
                                 <!-- Delete -->
-                                <button role="button" data-modal-target="popup-modal{{ $alumni->id }}"
-                                    data-modal-toggle="popup-modal{{ $alumni->id }}"
+                                <button role="button" 
+                                onclick="event.preventDefault(); deleteRecord('{{ $alumni->id }}')"
                                     class="w-full md:w-auto block md:inline-block text-center bg-red-600 px-2 py-1 text-sm rounded text-white"><i
                                         class="fa-solid fa-trash"></i></button>
-                                <div id="popup-modal{{ $alumni->id }}" tabindex="-1"
-                                    class="hidden fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-                                    <div class="relative w-full h-full max-w-md md:h-auto">
-                                        <div class="relative bg-white rounded-lg shadow">
-                                            <button type="button"
-                                                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                                                data-modal-hide="popup-modal{{ $alumni->id }}">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                            <div class="flex flex-col p-6 text-center">
-                                                <i
-                                                    class="block mb-5 text-gray-500 fa-solid fa-circle-exclamation fa-3x"></i>
-                                                <h3 class="mb-5 text-lg font-normal text-gray-500">Kamu yakin akan
-                                                    menghapus kompetensi ini?
-                                                </h3>
-                                                <div class="flex justify-center gap-2">
-                                                    <form action="{{ route('programalumni.destroy', $alumni->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button role="button"
-                                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                                                            Ya, tentu saja!
-                                                        </button>
-                                                    </form>
-                                                    <button data-modal-hide="popup-modal{{ $alumni->id }}"
-                                                        type="button"
-                                                        class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Tidak,
-                                                        batalkan</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </td>
                         </tr>
                         @empty
@@ -272,3 +265,27 @@
             </div>
         </div>
     @endsection
+
+    <script>
+        const deleteRecord = (id) => {
+            var token = $('meta[name="csrf-token"]').attr('content');
+            if (confirm(`Apakah kamu yakin akan menghapus data?`)) {
+                $.ajax({
+                    url: `/programalumni/${id}`,
+                    type: 'POST',
+                    data: {
+                        '_method': 'DELETE',
+                        '_token': token
+                    },
+                    success: function(response) {
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error deleting record');
+                        console.log(error);
+                        console.log(status);
+                    }
+                })
+            }
+        }
+    </script>

@@ -104,46 +104,10 @@
                                         href="{{ route('documentation.edit', $documentation->id) }}"><i
                                             class="fa-regular fa-pen-to-square"></i></a></button>
                                 <!-- Delete -->
-                                <button role="button" data-modal-target="popup-modal{{ $documentation->id }}"
-                                    data-modal-toggle="popup-modal{{ $documentation->id }}"
+                                <button role="button" 
+                                onclick="event.preventDefault(); deleteRecord('{{ $documentation->id }}')"
                                     class="w-full md:w-auto block md:inline text-center bg-red-600 px-2 py-1 text-sm rounded text-white"><i
                                         class="fa-solid fa-trash"></i></button>
-                                <div id="popup-modal{{ $documentation->id }}" tabindex="-1"
-                                    class="hidden fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-                                    <div class="relative w-full h-full max-w-md md:h-auto">
-                                        <div class="relative bg-white rounded-lg shadow">
-                                            <button type="button"
-                                                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                                                data-modal-hide="popup-modal{{ $documentation->id }}">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                            <div class="flex flex-col p-6 text-center">
-                                                <i
-                                                    class="block mb-5 text-gray-500 fa-solid fa-circle-exclamation fa-3x"></i>
-                                                <h3 class="mb-5 text-lg font-normal text-gray-500">Kamu yakin akan
-                                                    menghapus
-                                                    {{ $documentation->title }}?
-                                                </h3>
-                                                <div class="flex justify-center gap-2">
-                                                    <form action="{{ route('documentation.destroy', $documentation->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button role="button"
-                                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                                                            Ya, tentu saja!
-                                                        </button>
-                                                    </form>
-                                                    <button data-modal-hide="popup-modal{{ $documentation->id }}"
-                                                        type="button"
-                                                        class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Tidak,
-                                                        batalkan</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Toggle -->
                             </td>
                         </tr>
                     @empty
@@ -156,3 +120,27 @@
         </div>
     </div>
 @endsection
+
+<script>
+    const deleteRecord = (id) => {
+        var token = $('meta[name="csrf-token"]').attr('content');
+        if (confirm(`Apakah kamu yakin akan menghapus data?`)) {
+            $.ajax({
+                url: `/documentation/${id}`,
+                type: 'POST',
+                data: {
+                    '_method': 'DELETE',
+                    '_token': token
+                },
+                success: function(response) {
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    alert('Error deleting record');
+                    console.log(error);
+                    console.log(status);
+                }
+            })
+        }
+    }
+</script>

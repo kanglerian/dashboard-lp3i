@@ -41,7 +41,7 @@
             </div>
             <div class="w-full">
                 <label for="status" class="block mb-1 text-sm font-medium text-gray-900">Status</label>
-                <select type="text" name="status" id="status"
+                <select name="status" id="status"
                     class="bg-gray-50 border border-gray-300 @error('status') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     required>
                     <option value="{{ $benefit->status }}">{{ $benefit->status == 1 ? 'Aktif' : 'Tidak aktif' }}
@@ -56,7 +56,7 @@
             <div class="w-full">
                 <label class="block mb-1 text-sm font-medium text-gray-900" for="image">Upload Icon</label>
                 <input
-                    class="bg-gray-50 border border-gray-300 @error('status') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    class="bg-gray-50 border border-gray-300 @error('image') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     id="image" type="file" name="image">
                 <div class="mt-1 text-xs text-gray-500">
                     <span class="font-bold">Ketentuan:</span>
@@ -77,5 +77,4 @@
             class="rounded-lg border-4 border-white shadow">
     </div>
 </div>
-
 @endsection

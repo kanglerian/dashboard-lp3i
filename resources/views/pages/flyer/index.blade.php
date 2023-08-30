@@ -39,7 +39,7 @@
                 </div>
                 <div class="w-full">
                     <label for="location" class="block mb-1 text-sm font-medium text-gray-900">Pilih lokasi</label>
-                    <select type="text" name="location" id="location"
+                    <select name="location" id="location"
                         class="bg-gray-50 border border-gray-300 @error('location') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         required>
                         <option>Pilih lokasi</option>
