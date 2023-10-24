@@ -27,10 +27,10 @@ class Program extends Model
      * @var array<int, string>
      */
     public function alumni(){
-        return $this->hasMany(ProgramAlumni::class,'uuid');
+        return $this->hasMany(ProgramAlumni::class, 'uuid');
     }
     public function interest(){
-        return $this->hasMany(ProgramInterest::class,'uuid');
+        return $this->hasMany(ProgramInterest::class, 'uuid');
     }
     protected $hidden = [
         'id',
