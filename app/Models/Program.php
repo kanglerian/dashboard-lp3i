@@ -29,8 +29,9 @@ class Program extends Model
     public function alumni(){
         return $this->hasMany(ProgramAlumni::class, 'uuid');
     }
-    public function interest(){
-        return $this->hasMany(ProgramInterest::class, 'uuid');
+    public function interest()
+    {
+        return $this->hasMany(ProgramInterest::class, 'uuid', 'uuid');
     }
     protected $hidden = [
         'id',

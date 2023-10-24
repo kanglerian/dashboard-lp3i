@@ -14,7 +14,9 @@ class ProgramInterest extends Model
         'name',
         'status',
     ];
-
+    public function interest(){
+        return $this->belongsTo(Program::class,'uuid','uuid');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
