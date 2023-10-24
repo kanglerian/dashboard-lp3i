@@ -14,12 +14,6 @@ class ProgramAlumni extends Model
 
     protected $fillable = ['uuid', 'image', 'name', 'school', 'work', 'profession', 'quote', 'year', 'testimoni', 'career', 'status'];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-
     public function program()
     {
         return $this->belongsTo(Program::class, 'uuid', 'uuid');

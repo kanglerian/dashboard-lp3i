@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Program extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'programs';
     protected $fillable = [
         'uuid',
@@ -28,6 +28,9 @@ class Program extends Model
      */
     public function alumni(){
         return $this->hasMany(ProgramAlumni::class,'uuid');
+    }
+    public function interest(){
+        return $this->hasMany(ProgramInterest::class,'uuid');
     }
     protected $hidden = [
         'id',

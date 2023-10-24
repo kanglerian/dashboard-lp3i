@@ -9,7 +9,7 @@ class ProgramAPIController extends Controller
 {
     public function index()
     {
-        $programs = Program::all();
+        $programs = Program::with('interest')->get();
         return response()->json($programs);
     }
 
