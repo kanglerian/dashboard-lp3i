@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProgramInterest;
 use Illuminate\Http\Request;
 use App\Models\Program;
 use App\Models\ProgramAlumni;
@@ -73,11 +74,12 @@ class ProgramController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($uuid)
-    {   
+    {
         $visions = ProgramVision::where('uuid', $uuid)->get();
         $misions = ProgramMision::where('uuid', $uuid)->get();
         $benefits = ProgramBenefit::where('uuid', $uuid)->get();
         $careers = ProgramCareer::where('uuid', $uuid)->get();
+        $interests = ProgramInterest::where('uuid', $uuid)->get();
         $competences = ProgramCompetence::where('uuid', $uuid)->get();
         $alumnis = ProgramAlumni::where('uuid', $uuid)->get();
         $program = Program::where('uuid', $uuid)->first();
@@ -86,6 +88,7 @@ class ProgramController extends Controller
             'visions' => $visions,
             'misions' => $misions,
             'benefits' => $benefits,
+            'interests' => $interests,
             'careers' => $careers,
             'competences' => $competences,
             'alumnis' => $alumnis,

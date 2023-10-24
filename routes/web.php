@@ -21,11 +21,12 @@ use App\Http\Controllers\ProgramBenefitController;
 use App\Http\Controllers\ProgramCareerController;
 use App\Http\Controllers\ProgramCompetenceController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ProgramInterestController;
 use App\Http\Controllers\ProgramMisionController;
 use App\Http\Controllers\ProgramVisionController;
 use App\Http\Controllers\FlyerController;
 // UPPM
-use App\Http\Controllers\PanduanUPPMController; 
+use App\Http\Controllers\PanduanUPPMController;
 use App\Http\Controllers\DataPenelitianUPPMController;
 use App\Http\Controllers\DataPkmUPPMController;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +69,7 @@ Route::resource('programmision', ProgramMisionController::class)->middleware('au
 Route::resource('programbenefit', ProgramBenefitController::class)->middleware('auth');
 Route::resource('programcareer', ProgramCareerController::class)->middleware('auth');
 Route::resource('programcompetence', ProgramCompetenceController::class)->middleware('auth');
+Route::resource('programinterest', ProgramInterestController::class)->middleware('auth');
 Route::resource('programalumni', ProgramAlumniController::class)->middleware('auth');
 Route::resource('flyer', FlyerController::class)->middleware('auth');
 
