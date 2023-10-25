@@ -19,6 +19,7 @@ class Program extends Model
         'level',
         'image',
         'regular',
+        'employee',
         'status',
     ];
 
