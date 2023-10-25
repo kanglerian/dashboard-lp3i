@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://politekniklp3i-tasikmalaya.ac.id','https://sbpmb.politekniklp3i-tasikmalaya.ac.id','http://localhost:5173','http://127.0.0.1:8000','https://database.politekniklp3i-tasikmalaya.ac.id'],
+    'allowed_origins' => ['https://politekniklp3i-tasikmalaya.ac.id','https://sbpmb.politekniklp3i-tasikmalaya.ac.id','http://localhost:5173','http://127.0.0.1:8000','https://database.politekniklp3i-tasikmalaya.ac.id','https://pmb.politekniklp3i-tasikmalaya.ac.id'],
 
     'allowed_origins_patterns' => [],
 
