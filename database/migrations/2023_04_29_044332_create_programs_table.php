@@ -20,6 +20,7 @@ class CreateProgramsTable extends Migration
             $table->string('campus');
             $table->string('level');
             $table->string('image');
+            $table->boolean('regular');
             $table->boolean('status');
             $table->timestamps();
         });

@@ -18,6 +18,7 @@ class Program extends Model
         'campus',
         'level',
         'image',
+        'regular',
         'status',
     ];
 
