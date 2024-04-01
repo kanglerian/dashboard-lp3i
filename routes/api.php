@@ -60,7 +60,7 @@ Route::get('/articles', [ArticleAPIController::class, 'index']);
 Route::get('/articles/{uuid}', [ArticleAPIController::class, 'show']);
 Route::get('/ormawas', [OrmawaAPIController::class, 'index']);
 Route::get('/ormawas/{uuid}', [OrmawaAPIController::class, 'show']);
-Route::get('/programs', [ProgramAPIController::class, 'index']);
+Route::get('/programss', [ProgramAPIController::class, 'index']);
 Route::get('/programs/{uuid}', [ProgramAPIController::class, 'show']);
 Route::get('/programvisions', [ProgramVisionAPIController::class, 'index']);
 Route::get('/programvisions/{uuid}', [ProgramVisionAPIController::class, 'show']);
